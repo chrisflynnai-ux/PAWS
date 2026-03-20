@@ -1,0 +1,48 @@
+{
+  "id": "skill.sales_page_deconstructor.v4_0_0",
+  "name": "Sales Page Deconstructor",
+  "version": "4.0.0",
+  "status": "active",
+  "category": "sales_page_deconstructor",
+  "tags": [
+    "analysis",
+    "deconstruction",
+    "framework_extraction",
+    "neuro_resonance",
+    "6D_neurobox",
+    "7S_chain"
+  ],
+  "description": "Master-level sales page analyst who deconstructs existing pages through the \n      6D Neuro-Box lens, validates 7S chain sequencing, extracts reusable frameworks,\n      and prescribes surgical fixes\u2014all while protecting what's already working.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "sales_page_deconstructor_v4_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}
