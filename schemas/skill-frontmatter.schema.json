@@ -45,9 +45,29 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "optional_inputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "conditional_inputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
     "outputs": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "optional_outputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "conditional_outputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
     },
     "depends_on": {
       "type": "array",
@@ -78,6 +98,52 @@
       "type": "array",
       "items": { "type": "string", "enum": ["obsidian", "threadex", "experience_bank", "session_state"] },
       "default": []
+    },
+    "phase_type": {
+      "type": "string",
+      "enum": ["exploratory", "compositional", "executional", "resonant"],
+      "default": "executional"
+    },
+    "maturity_stage": {
+      "type": "string",
+      "enum": ["seed", "developing", "production", "mature"],
+      "default": "developing"
+    },
+    "domain_context": {
+      "type": "object",
+      "properties": {
+        "primary_domain": { "type": "string" },
+        "sub_domain": { "type": "string" },
+        "market_awareness": { "type": "string" },
+        "industry_patterns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "voice_orientation": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "eval_expectations": {
+      "type": "object",
+      "properties": {
+        "base_model_baseline": { "type": "number" },
+        "skill_only_target": { "type": "number" },
+        "skill_plus_experience": { "type": "number" },
+        "key_metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "target": { "type": ["number", "string"] }
+            },
+            "required": ["name", "target"],
+            "additionalProperties": false
+          }
+        },
+        "control_test": { "type": "string" }
+      },
+      "additionalProperties": false
     },
     "token_budget": {
       "type": "string",

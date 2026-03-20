@@ -30,7 +30,9 @@
       "type": "object",
       "properties": {
         "reads": { "type": "array", "items": { "type": "string" } },
-        "writes": { "type": "array", "items": { "type": "string" } }
+        "writes": { "type": "array", "items": { "type": "string" } },
+        "conditional_writes": { "type": "array", "items": { "type": "string" } },
+        "write_note": { "type": "string" }
       },
       "required": ["reads", "writes"]
     },
@@ -46,6 +48,32 @@
         "required": ["name"]
       }
     },
+    "optional_input_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" },
+          "required": { "type": "boolean", "default": false },
+          "condition": { "type": "string" }
+        },
+        "required": ["name"]
+      }
+    },
+    "conditional_input_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" },
+          "required": { "type": "boolean", "default": false },
+          "condition": { "type": "string" }
+        },
+        "required": ["name"]
+      }
+    },
     "output_schema": {
       "type": "array",
       "items": {
@@ -57,6 +85,40 @@
         "required": ["name"]
       }
     },
+    "optional_output_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" },
+          "required": { "type": "boolean", "default": false },
+          "condition": { "type": "string" }
+        },
+        "required": ["name"]
+      }
+    },
+    "conditional_output_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" },
+          "required": { "type": "boolean", "default": false },
+          "condition": { "type": "string" }
+        },
+        "required": ["name"]
+      }
+    },
+    "phase_type": {
+      "type": "string",
+      "enum": ["exploratory", "compositional", "executional", "resonant"]
+    },
+    "maturity_stage": {
+      "type": "string",
+      "enum": ["seed", "developing", "production", "mature"]
+    },
     "runtime": {
       "type": "object",
       "properties": {
@@ -66,6 +128,42 @@
       }
     },
     "eval_suite": { "type": "string", "default": "" },
+    "domain_context": {
+      "type": "object",
+      "properties": {
+        "primary_domain": { "type": "string" },
+        "sub_domain": { "type": "string" },
+        "market_awareness": { "type": "string" },
+        "industry_patterns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "voice_orientation": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "eval_expectations": {
+      "type": "object",
+      "properties": {
+        "base_model_baseline": { "type": "number" },
+        "skill_only_target": { "type": "number" },
+        "skill_plus_experience": { "type": "number" },
+        "key_metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "target": { "type": ["number", "string"] }
+            },
+            "required": ["name", "target"],
+            "additionalProperties": false
+          }
+        },
+        "control_test": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
     "package": {
       "type": "object",
       "properties": {

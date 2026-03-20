@@ -9,18 +9,31 @@ tags: [tag1, tag2]
 description: A clear description of what this skill does (10-300 chars).
 inputs:
   - input_name
+optional_inputs: []
+conditional_inputs: []
 outputs:
   - output_name
+optional_outputs: []
+conditional_outputs: []
 depends_on: []
 delegates_to: []
 complements: []
 required_tools: []
 memory_reads: []
 memory_writes: []
+phase_type: executional
+maturity_stage: developing
+domain_context:
+  primary_domain: general
+  sub_domain: ""
+  market_awareness: general
+  industry_patterns: []
+  voice_orientation: conversational
 token_budget: medium
 risk_level: medium
 model_preference: any
 eval_suite: ""
+eval_expectations: {}
 ---
 
 # Skill Name
@@ -43,15 +56,26 @@ What this skill does and why it exists.
 
 ## Inputs
 
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| input_name | string | yes | What this input is |
+| Input | Type | Requirement | Description |
+|-------|------|-------------|-------------|
+| input_name | string | required | What this input is |
 
 ## Outputs
 
-| Output | Type | Description |
-|--------|------|-------------|
-| output_name | string | What this output contains |
+| Output | Type | Requirement | Description |
+|--------|------|-------------|-------------|
+| output_name | string | primary | What this output contains |
+
+## Phase Behavior
+
+- Phase Type: `executional`
+- Maturity Stage: `developing`
+
+## Domain Context
+
+- Primary Domain: `general`
+- Market Awareness: `general`
+- Voice Orientation: `conversational`
 
 ## Workflow
 
@@ -84,6 +108,12 @@ What this skill does and why it exists.
 
 **Input:** description
 **Output:** expected result
+
+## Eval Expectations
+
+- base_model_baseline: `0.45`
+- skill_only_target: `0.65`
+- skill_plus_experience: `0.80`
 
 ## Notes
 

@@ -3,19 +3,32 @@
 Usage:
     python tools/migrate.py <xml_file> <output_dir>
     python tools/migrate.py --batch <xml_dir> <output_dir>
+    python tools/migrate.py --batch --grouped <xml_root> <output_root>
+    python tools/migrate.py --inventory <xml_root> <output_root>
 
 Runs the full pipeline: XML -> AST -> skill.md + manifest.json -> validate
 """
 import argparse
 import json
 import os
-import sys
 from pathlib import Path
 
 from xml_to_ast import parse_xml_file
 from ast_to_skill_md import render_skill_md
 from ast_to_manifest import render_manifest
 from validate import validate_frontmatter, validate_manifest as validate_mf
+
+
+def _family_name(xml_path: Path, source_root: Path) -> str:
+    """Resolve the logical family name for an XML file under a source root."""
+    try:
+        relative = xml_path.relative_to(source_root)
+    except ValueError:
+        return xml_path.parent.name
+
+    if len(relative.parts) > 1:
+        return relative.parts[0]
+    return "ungrouped"
 
 
 def migrate_single(xml_path: str, output_dir: str) -> dict:
@@ -128,14 +141,137 @@ def migrate_batch(xml_dir: str, output_dir: str):
     print(f"Report: {results_path}")
 
 
+def migrate_grouped(xml_root: str, output_root: str):
+    """Migrate XML skills grouped by family directories under a shared root."""
+    source_root = Path(xml_root)
+    xml_files = sorted(source_root.rglob("*.xml"))
+    family_names = sorted({_family_name(xml_file, source_root) for xml_file in xml_files})
+    print(f"Found {len(xml_files)} XML files across {len(family_names)} families in {xml_root}\n")
+
+    results = []
+    for index, xml_file in enumerate(xml_files, start=1):
+        family = _family_name(xml_file, source_root)
+        family_output = Path(output_root) / family
+        family_output.mkdir(parents=True, exist_ok=True)
+
+        print(f"[{index}/{len(xml_files)}] Migrating {family}/{xml_file.name}")
+        try:
+            result = migrate_single(str(xml_file), str(family_output))
+            result["family"] = family
+            results.append(result)
+        except Exception as e:
+            print(f"  ERROR: {e}")
+            results.append({
+                "family": family,
+                "xml_source": xml_file.name,
+                "status": "ERROR",
+                "error": str(e),
+            })
+        print()
+
+    passed = sum(1 for r in results if r["status"] == "PASS")
+    failed = sum(1 for r in results if r["status"] == "FAIL")
+    errors = sum(1 for r in results if r["status"] == "ERROR")
+    print(f"Grouped migration complete: {passed} passed, {failed} failed, {errors} errors out of {len(results)} total")
+
+    results_path = Path(output_root) / "migration_report.json"
+    with open(results_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+    print(f"Report: {results_path}")
+
+
+def build_inventory(source_root: str, output_root: str) -> dict:
+    """Build a report showing source XML coverage across migrated families."""
+    source_root_path = Path(source_root)
+    output_root_path = Path(output_root)
+
+    source_by_family: dict[str, list[dict[str, str]]] = {}
+    for xml_file in sorted(source_root_path.rglob("*.xml")):
+        family = _family_name(xml_file, source_root_path)
+        source_by_family.setdefault(family, []).append({
+            "xml_source": xml_file.name,
+            "xml_path": str(xml_file),
+        })
+
+    migrated_index: dict[str, list[dict[str, str]]] = {}
+    for manifest_path in sorted(output_root_path.rglob("manifest.json")):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                manifest = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        migrated_from = manifest.get("provenance", {}).get("migrated_from")
+        if not migrated_from:
+            continue
+
+        migrated_index.setdefault(migrated_from.lower(), []).append({
+            "skill_id": manifest.get("id", ""),
+            "package_dir": str(manifest_path.parent),
+            "manifest_path": str(manifest_path),
+        })
+
+    families: dict[str, dict[str, object]] = {}
+    for family, xml_entries in source_by_family.items():
+        migrated = []
+        pending = []
+        for xml_entry in xml_entries:
+            matches = migrated_index.get(xml_entry["xml_source"].lower(), [])
+            if matches:
+                migrated.append({**xml_entry, "matches": matches})
+            else:
+                pending.append(xml_entry)
+
+        families[family] = {
+            "xml_total": len(xml_entries),
+            "migrated_count": len(migrated),
+            "pending_count": len(pending),
+            "migrated": migrated,
+            "pending": pending,
+        }
+
+    summary = {
+        "source_root": str(source_root_path),
+        "output_root": str(output_root_path),
+        "family_count": len(families),
+        "xml_total": sum(data["xml_total"] for data in families.values()),
+        "migrated_total": sum(data["migrated_count"] for data in families.values()),
+        "pending_total": sum(data["pending_count"] for data in families.values()),
+        "families": dict(sorted(families.items())),
+    }
+    return summary
+
+
+def write_inventory(source_root: str, output_root: str) -> dict:
+    """Generate and persist an inventory report."""
+    report = build_inventory(source_root, output_root)
+    report_path = Path(output_root) / "migration_inventory.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(report_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+
+    print(
+        f"Inventory complete: {report['migrated_total']} migrated, "
+        f"{report['pending_total']} pending across {report['family_count']} families"
+    )
+    print(f"Report: {report_path}")
+    return report
+
+
 def main():
     parser = argparse.ArgumentParser(description="XSkill Migration CLI")
     parser.add_argument("source", help="XML file or directory (with --batch)")
     parser.add_argument("output", help="Output directory for skill packages")
     parser.add_argument("--batch", action="store_true", help="Migrate all XMLs in directory")
+    parser.add_argument("--grouped", action="store_true", help="Treat source as a root with family subdirectories")
+    parser.add_argument("--inventory", action="store_true", help="Write migration inventory report instead of migrating")
     args = parser.parse_args()
 
-    if args.batch:
+    if args.inventory:
+        write_inventory(args.source, args.output)
+    elif args.batch and args.grouped:
+        migrate_grouped(args.source, args.output)
+    elif args.batch:
         migrate_batch(args.source, args.output)
     else:
         result = migrate_single(args.source, args.output)

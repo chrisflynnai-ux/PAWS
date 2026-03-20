@@ -22,8 +22,16 @@ def test_render_produces_valid_json():
         "required_tools": [],
         "memory_reads": ["obsidian"],
         "memory_writes": ["experience_bank"],
+        "optional_inputs": [],
+        "conditional_inputs": [{"name": "evidence_pack", "type": "yaml", "required": False, "description": "Required for T3+", "condition": "required for T3+"}],
         "inputs": [{"name": "brief", "type": "string", "required": True, "description": "The brief"}],
+        "optional_outputs": [],
+        "conditional_outputs": [{"name": "patch_trigger", "type": "yaml", "required": False, "description": "Emitted on fix", "condition": "fix verdict"}],
         "outputs": [{"name": "draft", "type": "string", "description": "Output"}],
+        "phase_type": "executional",
+        "maturity_stage": "production",
+        "domain_context": {"primary_domain": "general", "industry_patterns": ["proof"]},
+        "eval_expectations": {"base_model_baseline": 0.45},
         "token_budget": "medium",
         "risk_level": "medium",
         "model_preference": "sonnet",
@@ -38,6 +46,11 @@ def test_render_produces_valid_json():
     assert parsed["memory_contract"]["reads"] == ["obsidian"]
     assert parsed["memory_contract"]["writes"] == ["experience_bank"]
     assert len(parsed["input_schema"]) == 1
+    assert parsed["conditional_input_schema"][0]["name"] == "evidence_pack"
+    assert parsed["conditional_output_schema"][0]["name"] == "patch_trigger"
+    assert parsed["phase_type"] == "executional"
+    assert parsed["maturity_stage"] == "production"
+    assert parsed["domain_context"]["primary_domain"] == "general"
     assert parsed["runtime"]["model_preference"] == "sonnet"
 
 
