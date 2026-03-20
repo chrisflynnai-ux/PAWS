@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "XSkill Experience Record Schema",
+  "description": "Schema for individual records in experiences.jsonl",
+  "type": "object",
+  "required": ["experience_id", "skill_id", "timestamp", "scenario", "outcome"],
+  "properties": {
+    "experience_id": {
+      "type": "string",
+      "pattern": "^exp-[a-f0-9]{8}$",
+      "description": "Unique ID: exp-<8 char hex>"
+    },
+    "skill_id": {
+      "type": "string",
+      "description": "References the skill this experience belongs to"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scenario": {
+      "type": "string",
+      "description": "What situation triggered this experience"
+    },
+    "trigger": {
+      "type": "string",
+      "description": "Specific input or condition"
+    },
+    "action_taken": {
+      "type": "string",
+      "description": "What the agent did"
+    },
+    "tool_choice": {
+      "type": "string",
+      "description": "Which tool was selected and why"
+    },
+    "failure_mode": {
+      "type": "string",
+      "default": "",
+      "description": "What went wrong, if anything"
+    },
+    "recovery_tactic": {
+      "type": "string",
+      "default": "",
+      "description": "How the agent recovered"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "partial", "failure", "unknown"]
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence-weighted quality score"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "source": {
+      "type": "string",
+      "enum": ["runtime", "migration_seed", "human_authored", "eval_result"],
+      "default": "runtime"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    }
+  },
+  "additionalProperties": false
+}

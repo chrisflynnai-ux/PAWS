@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "XSkill Manifest Schema",
+  "description": "Machine-readable compiled manifest for each skill package",
+  "type": "object",
+  "required": ["id", "name", "version", "status", "category", "tags", "relationships", "memory_contract", "input_schema", "output_schema", "runtime"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "status": { "type": "string", "enum": ["draft", "active", "deprecated", "archived"] },
+    "category": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "description": { "type": "string" },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "depends_on": { "type": "array", "items": { "type": "string" } },
+        "delegates_to": { "type": "array", "items": { "type": "string" } },
+        "complements": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["depends_on", "delegates_to", "complements"]
+    },
+    "tool_requirements": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "memory_contract": {
+      "type": "object",
+      "properties": {
+        "reads": { "type": "array", "items": { "type": "string" } },
+        "writes": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["reads", "writes"]
+    },
+    "input_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" },
+          "required": { "type": "boolean", "default": true }
+        },
+        "required": ["name"]
+      }
+    },
+    "output_schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "default": "string" }
+        },
+        "required": ["name"]
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "model_preference": { "type": "string", "default": "any" },
+        "token_budget": { "type": "string", "default": "medium" },
+        "risk_level": { "type": "string", "default": "medium" }
+      }
+    },
+    "eval_suite": { "type": "string", "default": "" },
+    "package": {
+      "type": "object",
+      "properties": {
+        "has_examples": { "type": "boolean" },
+        "has_evals": { "type": "boolean" },
+        "has_scripts": { "type": "boolean" },
+        "has_sub_skills": { "type": "boolean" },
+        "has_templates": { "type": "boolean" },
+        "has_experiences": { "type": "boolean" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "migrated_from": { "type": "string", "description": "Original XML filename" },
+        "migration_date": { "type": "string", "format": "date" },
+        "migration_tool": { "type": "string", "default": "xskill-migrator" },
+        "validated": { "type": "boolean", "default": false }
+      }
+    }
+  },
+  "additionalProperties": false
+}

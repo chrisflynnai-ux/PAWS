@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "XSkill Frontmatter Schema",
+  "description": "Required YAML frontmatter for every skill.md file",
+  "type": "object",
+  "required": ["id", "name", "version", "status", "owner", "category", "tags", "description", "inputs", "outputs"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^skill\\.[a-z_]+\\.[a-z_]+\\.v[0-9]+_[0-9]+_[0-9]+$",
+      "description": "Unique skill identifier: skill.<family>.<name>.v<major>_<minor>_<patch>"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated", "archived"]
+    },
+    "owner": {
+      "type": "string",
+      "default": "supermind"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["copy", "research", "design", "ads", "email", "leadgen", "product", "meta", "systems", "automations", "knowledge", "voice", "social", "video", "webinar", "writing", "advisor", "tools"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 300
+    },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "depends_on": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "delegates_to": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "complements": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "required_tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "memory_reads": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["obsidian", "threadex", "experience_bank", "session_state"] },
+      "default": []
+    },
+    "memory_writes": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["obsidian", "threadex", "experience_bank", "session_state"] },
+      "default": []
+    },
+    "token_budget": {
+      "type": "string",
+      "enum": ["micro", "small", "medium", "large", "unbounded"],
+      "default": "medium"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "model_preference": {
+      "type": "string",
+      "enum": ["opus", "sonnet", "haiku", "codex", "gemini", "any"],
+      "default": "any"
+    },
+    "eval_suite": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "additionalProperties": false
+}
