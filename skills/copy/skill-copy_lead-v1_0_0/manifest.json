@@ -1,0 +1,51 @@
+{
+  "id": "skill.copy_lead.v1_0_0",
+  "name": "Copy Lead",
+  "version": "1.0.0",
+  "status": "active",
+  "category": "copy_lead",
+  "tags": [
+    "sales_pages",
+    "landing_pages",
+    "offer_pages",
+    "authentic_response_copy",
+    "neuro_box",
+    "copy_blocks",
+    "mechanism_architecture",
+    "resonance",
+    "sublime_intervention"
+  ],
+  "description": "Build high-converting sales pages, landing pages, and offer pages using\n      the Neuro-Box 3-axis trust bridge (Resonate \u2192 Persuade \u2192 Influence \u2192 Inspire),\n      Copy Blocks density architecture, mechanism presentation protocol, and\n      market-type adaptive templates. The specialist writer with deep persuasion\n      knowledge that Copy Director routes to for warm/hot traffic conversion assets.\n      \n      Authentic-Response Copy: We share, serve, and support favorable decisions.\n      The science is Resonance, Persuasion, and Influence \u2014 not manipulation.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "skill.copy_lead.v1_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "sales_copy_consistency_contract",
+  "name": "",
+  "version": "1.0.0",
+  "status": "draft",
+  "category": "",
+  "tags": [],
+  "description": "Creates and validates a canonical \"lock file\" so all funnel assets (advertorial, VSL, sales page, emails) share the same promise, mechanism language, proof posture, and claim boundaries without drift.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "any",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "sales_copy_consistency_contract_v1.0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

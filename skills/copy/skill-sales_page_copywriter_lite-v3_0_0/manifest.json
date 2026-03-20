@@ -1,0 +1,49 @@
+{
+  "id": "skill.sales_page_copywriter_lite.v3_0_0",
+  "name": "Sales Page Copywriter (LITE)",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "sales_page_copywriter_lite",
+  "tags": [
+    "sales_page",
+    "conversion",
+    "neuro_resonance",
+    "6D_neurobox",
+    "7S_chain",
+    "lite",
+    "mobile_first"
+  ],
+  "description": "Produces clean, high-converting sales pages fast, with proper 6D neuro-activation\n      and 7S chain sequencing. Tightly aligned to PROJECT_BRIEF + MESSAGE_SPINE +\n      OFFER_ARCHITECTURE. Speed without sacrificing resonance or conversion integrity.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "sales_page_copywriter_lite_v3_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

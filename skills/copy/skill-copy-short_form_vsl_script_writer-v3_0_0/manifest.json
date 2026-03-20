@@ -1,0 +1,52 @@
+{
+  "id": "skill.copy.short_form_vsl_script_writer.v3_0_0",
+  "name": "Short-Form VSL Script Writer",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "copy",
+  "tags": [
+    "vsl",
+    "short_form",
+    "video_sales_letter",
+    "warm_traffic",
+    "conversion",
+    "value_equation",
+    "production_engineering",
+    "multi_channel",
+    "retention_engineering",
+    "two_column_script"
+  ],
+  "description": "Write and direct 5-10 minute VSL scripts for warm/hot traffic using multi-channel \n      production engineering. Scripts are delivered as two-column production documents \n      (Audio | Visual Direction) with hook alignment triads, retention engineering, \n      story-to-offer bridges, and platform-specific optimization. Converts viewers through \n      fast trust, front-loaded proof, compressed belief shifts, and Value Equation \n      optimization \u2014 then provides forensic diagnosis tools for post-launch iteration.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "opus",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "short_form_vsl_script_writer_v3_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

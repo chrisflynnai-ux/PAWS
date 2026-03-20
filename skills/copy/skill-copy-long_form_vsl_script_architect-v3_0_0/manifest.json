@@ -1,0 +1,53 @@
+{
+  "id": "skill.copy.long_form_vsl_script_architect.v3_0_0",
+  "name": "Long-Form VSL Script Architect",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "copy",
+  "tags": [
+    "vsl",
+    "video_sales_letter",
+    "long_form",
+    "documentary",
+    "mechanism",
+    "conversion",
+    "cold_traffic",
+    "visual_direction",
+    "retention_engineering",
+    "two_column_script",
+    "belief_installation"
+  ],
+  "description": "Writes AND directs 12-20 minute documentary-style VSL scripts for cold/cool traffic.\n      Transforms complex mechanisms into cinematic belief-installation sequences using the \n      11-step structure, PAST scene construction, minute-by-minute retention engineering, \n      and two-column production scripting. Outputs scripts that editors can shoot from \u2014 \n      not just words to read, but the complete visual experience.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "opus",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "long_form_vsl_script_architect_v3_0_0 (1).xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

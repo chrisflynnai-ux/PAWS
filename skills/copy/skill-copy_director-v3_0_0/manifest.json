@@ -1,0 +1,48 @@
+{
+  "id": "skill.copy_director.v3_0_0",
+  "name": "Copy Director",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "copy_director",
+  "tags": [
+    "orchestrator",
+    "router",
+    "production_track",
+    "awareness_routing",
+    "market_type_routing",
+    "delegation"
+  ],
+  "description": "Routes campaigns through the 4-phase production track. Reads a campaign brief or\n      MarketIntelPacket, diagnoses traffic temperature + awareness level + market type,\n      selects the correct asset formats, assigns the right production skills,\n      emits structured SKILL_ACTIVATION_ORDERs with tone/voice guidance, and\n      validates handoffs at every phase boundary. Does NOT write copy, build mechanisms,\n      design offers, or perform research.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "skill_copy_director_v3_0_0_FINAL.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

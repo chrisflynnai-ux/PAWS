@@ -1,0 +1,100 @@
+[
+  {
+    "xml_source": "advertorial_copy_master_v2.0.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 223, column 85"
+  },
+  {
+    "xml_source": "long_form_vsl_script_architect_v2.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 202, column 8"
+  },
+  {
+    "skill_id": "skill.copy.long_form_vsl_script_architect.v3_0_0",
+    "xml_source": "long_form_vsl_script_architect_v3_0_0 (1).xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-copy-long_form_vsl_script_architect-v3_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "master_writing_partner_v2.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 152, column 94"
+  },
+  {
+    "xml_source": "offer_architect_v3_0_0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 556, column 55"
+  },
+  {
+    "skill_id": "sales_copy_consistency_contract",
+    "xml_source": "sales_copy_consistency_contract_v1.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/sales_copy_consistency_contract",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "xml_source": "sales_page_copywriter_lite_v2.0.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 236, column 106"
+  },
+  {
+    "skill_id": "skill.sales_page_copywriter_lite.v3_0_0",
+    "xml_source": "sales_page_copywriter_lite_v3_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-sales_page_copywriter_lite-v3_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.sales_page_deconstructor.v4_0_0",
+    "xml_source": "sales_page_deconstructor_v4_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-sales_page_deconstructor-v4_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "short_form_vsl_script_writer_v2.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 187, column 8"
+  },
+  {
+    "skill_id": "skill.copy.short_form_vsl_script_writer.v3_0_0",
+    "xml_source": "short_form_vsl_script_writer_v3_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-copy-short_form_vsl_script_writer-v3_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.copy_lead.v1_0_0",
+    "xml_source": "skill.copy_lead.v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-copy_lead-v1_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.copy_director.v3_0_0",
+    "xml_source": "skill_copy_director_v3_0_0_FINAL.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/copy/skill-copy_director-v3_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "strategic_copy_director_light_v2_1_0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 158, column 89"
+  },
+  {
+    "xml_source": "strategic_copy_director_v2_1_0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 368, column 8"
+  }
+]
