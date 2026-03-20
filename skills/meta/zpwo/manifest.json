@@ -1,0 +1,70 @@
+{
+  "id": "skill.meta.zpwo.v5_0_0",
+  "name": "Zero-Point Workflow Orchestrator",
+  "version": "5.0.0",
+  "status": "active",
+  "category": "meta",
+  "tags": ["orchestration", "routing", "pipeline", "cadence", "state-management", "meta"],
+  "description": "Ultra-lean meta-orchestrator that routes tasks through a 4-track pipeline with phase-aware cadence, team formations, quality gates, and artifact maturation tracking.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": ["skill.meta.mma.v5_0_0"],
+    "complements": ["skill.meta.skill_builder.v1_0_0", "skill.meta.knowledge_synthesis.v1_0_0"]
+  },
+  "tool_requirements": ["session_state_manager", "alias_resolver"],
+  "memory_contract": {
+    "reads": ["session_state", "threadex", "obsidian"],
+    "writes": ["session_state", "experience_bank"]
+  },
+  "input_schema": [
+    {"name": "command", "type": "string", "required": true},
+    {"name": "session_state", "type": "json", "required": false},
+    {"name": "project_brief", "type": "yaml", "required": false},
+    {"name": "message_spine", "type": "yaml", "required": false},
+    {"name": "evidence_pack", "type": "yaml", "required": false}
+  ],
+  "output_schema": [
+    {"name": "task_request", "type": "json"},
+    {"name": "session_state", "type": "json"},
+    {"name": "escalation_packet", "type": "json"}
+  ],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "small",
+    "risk_level": "low"
+  },
+  "cadence": {
+    "tracks": {
+      "T1": {"cycle_minutes": [1, 3], "feedback": "high_throughput", "convergence": "divergent"},
+      "T2": {"cycle_minutes": [3, 5], "feedback": "per_cycle", "convergence": "structured"},
+      "T3": {"cycle_minutes": [5, 15], "feedback": "per_step", "convergence": "methodical"},
+      "T4": {"cycle_minutes": [15, 30], "feedback": "deep_review", "convergence": "resonant"}
+    },
+    "supervisor_frequency": "every_3_to_5_cycles"
+  },
+  "quality_gates": {
+    "T2": 6.0,
+    "T3": 8.0,
+    "T4": 9.0
+  },
+  "circuit_breaker": {
+    "max_fix_loops": 3,
+    "consecutive_fail_rule": "same_dimension_2x_triggers_patch_request",
+    "on_exhausted": "halt_and_escalate"
+  },
+  "eval_suite": "zpwo-orchestration-core",
+  "package": {
+    "has_examples": true,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": true
+  },
+  "provenance": {
+    "migrated_from": "zpwo_v4_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "human-authored-rebuild",
+    "validated": true
+  }
+}
