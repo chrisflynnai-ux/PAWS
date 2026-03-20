@@ -1,0 +1,19 @@
+{
+  "workspace": "C:\\DEV\\SUPERMIND",
+  "repo": "https://github.com/chrisflynnai-ux/PAWS",
+  "phase": "Day 1 — Schema Lock + Pipeline Tooling",
+  "status": "initializing",
+  "created": "2026-03-20",
+  "locked_decisions": {
+    "orchestrator": "claude",
+    "build_engine": "codex",
+    "visual_qa": "gemini",
+    "source_of_truth": "skill.md",
+    "machine_layer": "manifest.json",
+    "learning_layer": "experiences.jsonl",
+    "harness": "claude_code_native"
+  },
+  "migration_pipeline": "XML → AST → skill.md → manifest.json → Experience Bank → validation → evals",
+  "pilot_family": "copy",
+  "archive_reference": "C:\\DEV\\ULTRAMIND_MASTER"
+}

@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build artifacts
+dist/
+build/
+*.tmp
+*.log
+
+# OS junk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Agent artifacts (keep local)
+.claude/plugins/cache/
+.claude/worktrees/
+
+# Large files
+*.mp4
+*.pptx
+*.zip
