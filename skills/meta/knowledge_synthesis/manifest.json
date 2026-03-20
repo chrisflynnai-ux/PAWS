@@ -14,7 +14,8 @@
   "tool_requirements": ["validate"],
   "memory_contract": {
     "reads": ["threadex", "experience_bank", "obsidian"],
-    "writes": ["threadex", "experience_bank"]
+    "writes": ["threadex"],
+    "write_note": "KS writes graph edges to ThreadEx only. It does NOT write directly to experience banks or skill packages. It emits admission_proposals for Skill Builder to apply."
   },
   "input_schema": [
     {"name": "source_material", "type": "any", "required": true},
@@ -28,13 +29,13 @@
   ],
   "output_schema": [
     {"name": "candidate_atoms", "type": "list"},
-    {"name": "synthesis_report", "type": "markdown"}
+    {"name": "synthesis_report", "type": "markdown"},
+    {"name": "rejection_log", "type": "jsonl"}
   ],
   "conditional_output_schema": [
-    {"name": "experience_records", "type": "jsonl", "condition": "experiences_extracted"},
-    {"name": "skill_seeds", "type": "list", "condition": "skill_seeds_identified"},
-    {"name": "script_candidates", "type": "list", "condition": "scripts_identified"},
-    {"name": "rejection_log", "type": "jsonl", "condition": "always"}
+    {"name": "admission_proposals", "type": "jsonl", "condition": "atoms_above_threshold", "note": "Proposed insertions for Skill Builder to apply. KS does not write directly to skill packages."},
+    {"name": "skill_seeds", "type": "list", "condition": "skill_seeds_identified", "note": "Delegated to Skill Builder. MMA scores the built package, not the raw seed."},
+    {"name": "script_candidates", "type": "list", "condition": "scripts_identified"}
   ],
   "runtime": {
     "model_preference": "sonnet",

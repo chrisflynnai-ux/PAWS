@@ -14,7 +14,9 @@
   "tool_requirements": ["validate", "migrate"],
   "memory_contract": {
     "reads": ["threadex", "experience_bank", "obsidian"],
-    "writes": ["threadex", "experience_bank"]
+    "writes": ["threadex"],
+    "conditional_writes": ["experience_bank"],
+    "write_note": "experience_bank writes are seed-only at build time (migration_seed source). Runtime experiences are NOT written by Skill Builder."
   },
   "input_schema": [
     {"name": "source_material", "type": "any", "required": true},
@@ -27,13 +29,13 @@
     {"name": "voice_profile", "type": "yaml", "condition": "persona_aware_build"}
   ],
   "output_schema": [
-    {"name": "skill_package", "type": "directory"},
     {"name": "build_report", "type": "markdown"}
   ],
   "conditional_output_schema": [
+    {"name": "skill_package", "type": "directory", "condition": "not_redundancy_halt"},
     {"name": "redundancy_analysis", "type": "markdown", "condition": "registry_provided"},
     {"name": "sub_skill_candidates", "type": "list", "condition": "decomposition_identified"},
-    {"name": "eval_expectations", "type": "yaml", "condition": "always"}
+    {"name": "eval_expectations", "type": "yaml", "condition": "successful_build"}
   ],
   "runtime": {
     "model_preference": "opus",
@@ -45,9 +47,11 @@
     "migrate": "Convert legacy XML with architectural upgrade",
     "refactor": "Revise existing skill after MMA fix_plan",
     "decompose": "Break monolith into parent + sub-skills + xScripts",
-    "package": "Prepare validated family for distribution"
+    "package": "Prepare validated family for distribution (PLANNED -- not yet operational)"
   },
-  "phase_types": ["exploratory", "compositional", "executional", "resonance-oriented"],
+  "phase_types": ["exploratory", "compositional", "executional", "resonant"],
+  "maturity_stages": ["seed", "developing", "production", "mature"],
+  "sub_skills_policy": "private_components_only. Sub-skills do not get registry entries or standalone IDs. Promote to full skill if needed by multiple parents.",
   "redundancy_thresholds": {
     "redundant": 0.80,
     "complementary": 0.30,

@@ -23,11 +23,11 @@ conditional_inputs:
 outputs:
   - candidate_atoms
   - synthesis_report
-conditional_outputs:
-  - experience_records
-  - skill_seeds
-  - script_candidates
   - rejection_log
+conditional_outputs:
+  - admission_proposals    # proposed insertions for Skill Builder to apply under validation
+  - skill_seeds            # delegated to Skill Builder for package creation
+  - script_candidates      # proposed xScripts for Skill Builder to integrate
 depends_on:
   - skill.meta.zpwo.v5_0_0
   - skill.meta.mma.v5_0_0
@@ -41,8 +41,9 @@ memory_reads:
   - experience_bank
   - obsidian
 memory_writes:
-  - threadex
-  - experience_bank
+  - threadex              # graph edges for new knowledge relationships only
+  # NOTE: Knowledge Synthesis does NOT write directly to experience banks or skill packages.
+  # It emits admission_proposals that Skill Builder applies under validation.
 token_budget: large
 risk_level: medium
 model_preference: sonnet
@@ -92,9 +93,9 @@ This is not a knowledge dump. It is a knowledge refinery with strict admission c
 |--------|------|-------------|
 | candidate_atoms | list | Classified atoms with scores and recommendations |
 | synthesis_report | markdown | Extraction stats, admission/rejection counts, recommendations |
-| experience_records | jsonl | Experience records ready for bank insertion (on admission) |
-| skill_seeds | list | Patterns substantial enough to become new skills (delegates to Skill Builder) |
-| script_candidates | list | Deterministic procedures suitable for xScript extraction |
+| admission_proposals | jsonl | Proposed insertions (experiences, patterns, failures, references) for Skill Builder to apply under package validation. KS does NOT write directly to skill packages. |
+| skill_seeds | list | Patterns substantial enough to become new skills. Delegated to Skill Builder for package creation. MMA scores the built package, not the raw seed. |
+| script_candidates | list | Deterministic procedures proposed for xScript extraction. Skill Builder integrates them. |
 | rejection_log | jsonl | Rejected atoms with reasons (for audit and learning) |
 
 ## Synthesis Modes
@@ -172,22 +173,22 @@ Every extracted fragment is classified into exactly one type:
 13. For atoms above threshold: proceed to Phase 4
 14. If existing_skill_registry provided: run novelty check against existing atoms
 
-### Phase 4: Routing and Admission
+### Phase 4: Proposal Emission (Not Direct Write)
 
-15. Route skill_seeds to Skill Builder via delegates_to
-16. Route experiences to target skill's experiences.jsonl
-17. Route scripts to target skill's scripts/ directory
-18. Route patterns to target skill's references/ or sub_skills/
-19. Route failures to target skill's Failure Modes section
-20. Route references to target skill's references/ directory
-21. Write synthesis_report with extraction stats and recommendations
+**Critical boundary: Knowledge Synthesis discovers and recommends. It does NOT write directly into existing skill packages.** Direct writes would bypass Skill Builder's package integrity layer and create skill.md/manifest.json drift.
+
+15. Delegate skill_seeds to Skill Builder via delegates_to (Skill Builder creates the package, then MMA scores the built result)
+16. Emit admission_proposals for experiences, patterns, failures, and references as structured proposals
+17. Each proposal specifies: target_skill_id, atom_type, proposed_content, insertion_location, admission_score
+18. Skill Builder (or a future package mutator) applies proposals under validation, ensuring manifest stays in sync
+19. Write synthesis_report with extraction stats, admission/rejection counts, and proposal summary
 
 ### Phase 5: Validation
 
-22. For admitted experience records: validate against experience.schema.json
-23. For admitted skill seeds: validate they have enough substance for Skill Builder
-24. For admitted scripts: verify they are actually deterministic (no LLM judgment required)
-25. Run MMA quick_score (M1) on any skill_seed before delegating to Skill Builder
+20. For admission_proposals: validate proposed content against experience.schema.json (experiences) or structural rules (patterns, failures, references)
+21. For skill_seeds: validate they have enough substance for Skill Builder (minimum: clear inputs, outputs, and at least 3 workflow steps)
+22. For script_candidates: verify they are actually deterministic (no LLM judgment required)
+23. NOTE: MMA does NOT score raw seeds or proposals. MMA scores built packages after Skill Builder produces them. The flow is: KS extracts -> SB builds -> MMA scores.
 
 ## Novelty Detection
 
@@ -219,9 +220,13 @@ Admitted experience records follow this flow:
 
 ```
 Raw observation -> Atomic extraction -> Classification -> Scoring ->
-Admission gate -> Schema validation -> experiences.jsonl insertion ->
-ThreadEx graph edge creation -> Available for future skill loading
+Admission gate -> Schema validation -> admission_proposal emitted ->
+Skill Builder applies proposal under package validation ->
+experiences.jsonl insertion + manifest update + ThreadEx graph edge ->
+Available for future skill loading
 ```
+
+**Knowledge Synthesis emits the proposal. Skill Builder (or package mutator) applies it.** This preserves package integrity and prevents drift between skill.md and manifest.json.
 
 Experience records include:
 - What happened (scenario)

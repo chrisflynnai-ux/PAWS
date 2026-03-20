@@ -5,7 +5,7 @@
   "status": "active",
   "category": "meta",
   "tags": ["quality", "scoring", "validation", "audit", "gate", "phase-aware", "meta"],
-  "description": "Phase-aware quality gate that scores artifacts across 7 dimensions with weighted evaluation, emits PASS/FIX/ESCALATE verdicts, and adapts scoring criteria by artifact maturity stage.",
+  "description": "Phase-aware quality gate that scores artifacts across 7 dimensions with renormalized weighted evaluation, emits PASS/FIX/BLOCK verdicts, and adapts scoring criteria by artifact maturity stage. ESCALATE is circuit-breaker driven only.",
   "relationships": {
     "depends_on": ["skill.meta.zpwo.v5_0_0"],
     "delegates_to": [],
@@ -18,7 +18,7 @@
   },
   "input_schema": [
     {"name": "target_artifact", "type": "any", "required": true},
-    {"name": "review_mode", "type": "string", "required": true}
+    {"name": "review_mode", "type": "string", "required": false, "note": "Auto-detected from target type if omitted"}
   ],
   "conditional_input_schema": [
     {"name": "ssot_context", "type": "yaml", "condition": "copy_review"},
@@ -26,10 +26,10 @@
     {"name": "patch_pack", "type": "markdown", "condition": "migration_review"}
   ],
   "output_schema": [
-    {"name": "audit_scorecard", "type": "markdown"},
-    {"name": "patch_trigger", "type": "yaml"}
+    {"name": "audit_scorecard", "type": "markdown"}
   ],
   "conditional_output_schema": [
+    {"name": "patch_trigger", "type": "yaml", "condition": "fix_or_block_verdict"},
     {"name": "fix_plan", "type": "markdown", "condition": "fix_verdict"},
     {"name": "drift_report", "type": "markdown", "condition": "m3_multi_asset"},
     {"name": "compliance_result", "type": "yaml", "condition": "m4_compliance_gate"}
@@ -41,34 +41,33 @@
   },
   "scoring": {
     "dimensions": {
-      "D1": {"name": "Strategy Alignment", "weight": 0.15},
-      "D2": {"name": "Proof Discipline", "weight": 0.20},
-      "D3": {"name": "CTA Integrity", "weight": 0.15},
-      "D4": {"name": "Voice Consistency", "weight": 0.15},
-      "D5": {"name": "Clarity + Structure", "weight": 0.10},
-      "D6": {"name": "Resonance", "weight": 0.15},
-      "D7": {"name": "Ethical Guardrails", "weight": 0.10}
+      "D1": {"name": "Strategy Alignment", "base_weight": 0.15},
+      "D2": {"name": "Proof Discipline", "base_weight": 0.20},
+      "D3": {"name": "CTA Integrity", "base_weight": 0.15},
+      "D4": {"name": "Voice Consistency", "base_weight": 0.15},
+      "D5": {"name": "Clarity + Structure", "base_weight": 0.10},
+      "D6": {"name": "Resonance", "base_weight": 0.15},
+      "D7": {"name": "Ethical Guardrails", "base_weight": 0.10}
     },
-    "phase_weight_adjustments": {
+    "phase_weight_multipliers": {
       "T1": {"D4": 0.5, "D6": 0.5},
       "T2": {"D6": 0.5},
       "T3": {},
       "T4": {"D4": 1.5, "D6": 1.5, "D7": 1.5, "D5": 0.5}
     },
-    "gates": {
-      "T1": null,
-      "T2": {"min_weighted_avg": 6.0},
-      "T3": {"min_weighted_avg": 8.0, "no_critical_below": 6.0},
-      "T4": {"min_weighted_avg": 9.0, "d7_floor": 7.0}
-    },
-    "verdicts": ["PASS", "FIX", "ESCALATE", "BLOCK"],
+    "renormalization": "After applying phase multipliers, all adjusted weights are renormalized to sum 1.0 before computing the weighted average. This ensures gate thresholds are comparable across phases.",
+    "gates_source": "skill.meta.zpwo.v5_0_0/manifest.json#scoring_gates",
+    "gates_note": "MMA reads gate thresholds from ZPWO at runtime. Gate values are NOT duplicated here. See ZPWO manifest for authoritative thresholds.",
+    "scoring_verdicts": ["PASS", "FIX", "BLOCK"],
+    "escalate_note": "ESCALATE is circuit-breaker driven (fix loops exhausted), not a direct scoring verdict.",
     "evidence_threshold": 8.0
   },
   "review_modes": ["M1_quick_score", "M2_deep_audit", "M3_multi_asset", "M4_compliance_gate", "M5_comparative", "migration_gate"],
   "circuit_breaker": {
     "max_fix_loops": 3,
     "same_dimension_2x": "patch_request_and_escalate",
-    "on_exhausted": "halt_and_escalate"
+    "on_exhausted": "halt_and_escalate",
+    "note": "ESCALATE verdict is only emitted by the circuit breaker, never by direct scoring"
   },
   "eval_suite": "mma-quality-gate-core",
   "package": {

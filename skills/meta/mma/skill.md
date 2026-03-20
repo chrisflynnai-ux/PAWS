@@ -12,15 +12,16 @@ description: >-
   to responsible skills, and adapts scoring criteria by artifact maturity stage.
 inputs:
   - target_artifact
-  - review_mode
+optional_inputs:
+  - review_mode           # auto-detected from target type if omitted
 conditional_inputs:
   - ssot_context        # required for copy reviews
   - session_state       # for circuit breaker tracking
   - patch_pack          # for migration reviews
 outputs:
   - audit_scorecard
-  - patch_trigger
 conditional_outputs:
+  - patch_trigger       # emitted on FIX/ESCALATE/BLOCK verdict only
   - fix_plan            # emitted on FIX verdict
   - drift_report        # emitted in M3 multi-asset mode
   - compliance_result   # emitted in M4 compliance gate mode
@@ -74,7 +75,7 @@ The v5.0 upgrade makes scoring phase-aware -- early phases reward useful diverge
 | Input | Type | Required | Description |
 |-------|------|----------|-------------|
 | target_artifact | any | yes | The artifact under review (copy asset, skill package, harness component) |
-| review_mode | string | yes | M1 quick_score, M2 deep_audit, M3 multi_asset, M4 compliance_gate, M5 comparative, migration_gate |
+| review_mode | string | no | M1 quick_score, M2 deep_audit, M3 multi_asset, M4 compliance_gate, M5 comparative, migration_gate. Auto-detected from target type if omitted. |
 | ssot_context | yaml | no | PROJECT_BRIEF, MESSAGE_SPINE, EVIDENCE_PACK for copy reviews |
 | session_state | json | no | Current workflow state and prior fix counts |
 | patch_pack | markdown | no | Heuristics and failure modes for migration reviews |
@@ -83,11 +84,11 @@ The v5.0 upgrade makes scoring phase-aware -- early phases reward useful diverge
 
 | Output | Type | Description |
 |--------|------|-------------|
-| audit_scorecard | markdown | Per-dimension scores, weighted average, verdict |
-| patch_trigger | yaml | Fix target, patch owner, escalation path |
-| fix_plan | markdown | Prioritized fix instructions (FIX verdict only) |
-| drift_report | markdown | Cross-asset consistency matrix (M3 mode only) |
-| compliance_result | yaml | Binary PASS/BLOCK with gate details (M4 mode only) |
+| audit_scorecard | markdown | Per-dimension scores, normalized weighted average, verdict. Always emitted. |
+| patch_trigger | yaml | Fix target, patch owner, escalation path. Emitted on FIX/ESCALATE/BLOCK only. |
+| fix_plan | markdown | Prioritized fix instructions. Emitted on FIX verdict only. |
+| drift_report | markdown | Cross-asset consistency matrix. Emitted in M3 mode only. |
+| compliance_result | yaml | Binary PASS/BLOCK with gate details. Emitted in M4 mode only. |
 
 ## Core Doctrine
 
@@ -121,75 +122,76 @@ The v5.0 upgrade makes scoring phase-aware -- early phases reward useful diverge
 | D6 | Resonance | 0.15 | Does it create genuine emotional connection? |
 | D7 | Ethical Guardrails | 0.10 | Does it avoid manipulation, false urgency, dark patterns? |
 
-**Weighted average** = sum of (dimension score * weight). Gate thresholds per track are defined by ZPWO.
+**Normalized weighted average:** After applying phase adjustments, MMA renormalizes all adjusted weights back to sum 1.0 before computing the weighted average. This ensures gate thresholds mean the same thing across all phases.
+
+```
+adjusted_weights = apply_phase_multipliers(base_weights, current_track)
+normalized_weights = {dim: w / sum(adjusted_weights.values()) for dim, w in adjusted_weights.items()}
+weighted_avg = sum(score[dim] * normalized_weights[dim] for dim in dimensions)
+```
+
+**Gate thresholds are single-homed in ZPWO v5.0.** MMA reads them from ZPWO's manifest at runtime. MMA does not define or restate gate thresholds -- it only applies them. If ZPWO changes a threshold, MMA inherits the change automatically.
 
 ## Phase-Aware Scoring
 
 MMA uses the canonical enum map from ZPWO v5.0 to adapt scoring behavior by phase.
 
-### Scoring Emphasis by Track
+### Phase Weight Multipliers (Pre-Renormalization)
 
-| Track | Phase | Maturity | Scoring Emphasis | De-Emphasized |
-|-------|-------|----------|-----------------|---------------|
-| T1 | research | exploratory | D1 Strategy, D2 Proof (coverage breadth) | D4 Voice, D6 Resonance |
-| T2 | draft | convergent | D1 Strategy, D3 CTA, D5 Clarity (structural coherence) | D6 Resonance (too early) |
-| T3 | production | executional | All dimensions scored equally | None -- full evaluation |
-| T4 | polish | resonant | D4 Voice, D6 Resonance, D7 Ethics (human impact) | D5 Clarity (assumed solid by T4) |
+| Track | Phase | Maturity | Multiplier Adjustments | Scoring Emphasis |
+|-------|-------|----------|----------------------|-----------------|
+| T1 | research | exploratory | D4: 0.5x, D6: 0.5x | Divergence and coverage breadth |
+| T2 | draft | convergent | D6: 0.5x | Structural coherence |
+| T3 | production | executional | (none -- all at 1.0x) | Full balanced evaluation |
+| T4 | polish | resonant | D4: 1.5x, D6: 1.5x, D7: 1.5x, D5: 0.5x | Human impact and resonance |
+
+After multipliers are applied, **all weights are renormalized to sum 1.0** before scoring. This prevents phase adjustments from inflating or deflating the total weight mass.
 
 ### Scoring Rules by Phase
 
 **T1 Research (exploratory):**
 - Reward useful divergence -- breadth of signal capture, not polish
-- Score D1 and D2 at full weight; reduce D4/D6 weight by 50%
-- Gate: no minimum score (T1 has no MMA gate)
-- Verdict bias: PASS unless fundamentally off-strategy
+- D4/D6 de-emphasized via 0.5x multiplier (renormalized)
+- Gate: read from ZPWO (currently: none)
+- Verdict: PASS unless fundamentally off-strategy
 
 **T2 Draft (convergent):**
 - Reward structured convergence -- angles, hooks, frameworks taking shape
-- Score D1, D3, D5 at full weight; D6 at 50% weight
-- Gate: weighted average >= 6.0
+- D6 de-emphasized via 0.5x multiplier (renormalized)
+- Gate: read from ZPWO (currently: normalized weighted avg >= 6.0)
 - Verdict: FIX if structural issues found, PASS if converging well
 
 **T3 Production (executional):**
-- Full evaluation -- all 7 dimensions at full weight
-- Gate: weighted average >= 8.0, with no critical dimension below 6.0
+- Full evaluation -- all 7 dimensions at base weight (no multipliers)
+- Gate: read from ZPWO (currently: normalized weighted avg >= 8.0, no critical dim < 6.0)
 - Verdict: FIX with specific patch triggers if below gate
 
 **T4 Polish (resonant):**
-- Emphasis on human impact -- voice, resonance, ethics
-- Score D4, D6, D7 at 1.5x weight; D5 at 0.5x weight
-- Gate: weighted average >= 9.0
+- Emphasis on human impact -- voice, resonance, ethics boosted
+- D4/D6/D7 emphasized via 1.5x, D5 de-emphasized via 0.5x (renormalized)
+- Gate: read from ZPWO (currently: normalized weighted avg >= 9.0)
 - Verdict: PASS only when artifact demonstrates genuine resonance
 
-### Maturity-Aware Verdict Logic
+### Verdict Logic
+
+MMA emits exactly one verdict per evaluation. Verdicts are:
+
+- **PASS** -- artifact meets or exceeds the gate threshold for its current track
+- **FIX** -- artifact is below gate; patch_trigger emitted with specific instructions
+- **BLOCK** -- non-negotiable threshold violated (e.g., D7 Ethics floor in T4); artifact cannot advance regardless of other scores
+
+**ESCALATE** is not a direct scoring verdict. It is triggered only by the circuit breaker when fix loops are exhausted (see Circuit Breaker Integration below). This distinction matters: MMA scoring produces PASS/FIX/BLOCK. The circuit breaker produces ESCALATE.
 
 ```
-IF track == T1:
-  PASS (always -- T1 has no gate)
-
-IF track == T2:
-  IF weighted_avg >= 6.0: PASS
-  IF weighted_avg < 6.0: FIX with structural focus
-
-IF track == T3:
-  IF weighted_avg >= 8.0 AND no critical dim < 6.0: PASS
-  IF any critical dim < 6.0: FIX (dimension-specific)
-  IF weighted_avg < 8.0: FIX (general quality)
-
-IF track == T4:
-  IF weighted_avg >= 9.0: PASS
-  IF weighted_avg < 9.0: FIX with resonance focus
-  IF D7 Ethics < 7.0: BLOCK (non-negotiable)
+1. Read gate thresholds from ZPWO manifest for current track
+2. Apply phase weight multipliers
+3. Renormalize weights to sum 1.0
+4. Compute normalized weighted average
+5. Check non-negotiable floors (D7 >= 7.0 in T4)
+6. IF floor violated: BLOCK
+7. ELIF weighted_avg >= gate_threshold AND no critical dim below floor: PASS
+8. ELSE: FIX (emit patch_trigger with dimension-specific instructions)
 ```
-
-## Quality Gates
-
-| Track | Gate Threshold | Critical Dimensions | Verdict Options |
-|-------|---------------|-------------------|-----------------|
-| T1 | none | none | PASS only |
-| T2 | >= 6.0 weighted avg | D1, D3 | PASS / FIX |
-| T3 | >= 8.0 weighted avg, no critical < 6.0 | All | PASS / FIX / ESCALATE |
-| T4 | >= 9.0 weighted avg | D4, D6, D7 | PASS / FIX / BLOCK |
 
 ## Circuit Breaker Integration
 
@@ -206,14 +208,14 @@ MMA tracks fix counts per dimension and enforces ZPWO's circuit breaker:
 
 1. **Classify Target** -- Identify artifact type (copy, skill, harness component)
 2. **Load Context** -- Read track from session_state, determine phase and maturity
-3. **Select Review Mode** -- Use review_mode input or auto-detect from target type
-4. **Apply Phase Weights** -- Adjust dimension weights based on current track
+3. **Select Review Mode** -- Use review_mode input if provided; otherwise auto-detect from target type (copy asset -> M1, skill package -> migration_gate, etc.)
+4. **Apply Phase Weights** -- Apply multipliers for current track, then renormalize to sum 1.0
 5. **Run Deterministic Checks** -- Python validators first (structural, schema, lint)
 6. **Score Dimensions** -- Evaluate each dimension with evidence requirements
-7. **Calculate Weighted Average** -- Apply phase-adjusted weights
-8. **Check Gate** -- Compare against track threshold
-9. **Emit Verdict** -- PASS / FIX / ESCALATE / BLOCK with full scorecard
-10. **Route Patch Trigger** -- If FIX, route to responsible skill with specific instructions
+7. **Calculate Normalized Weighted Average** -- Renormalize adjusted weights to sum 1.0, then compute
+8. **Check Gate** -- Read track threshold from ZPWO manifest, compare normalized score
+9. **Emit Verdict** -- PASS / FIX / BLOCK with full scorecard (ESCALATE is circuit-breaker only)
+10. **Route Patch Trigger** -- If FIX or BLOCK, route to responsible skill with specific instructions
 11. **Log Experience** -- Write scoring outcome to experience bank
 
 ## Failure Modes

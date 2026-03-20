@@ -21,12 +21,12 @@ conditional_inputs:
   - domain_context
   - voice_profile
 outputs:
-  - skill_package
   - build_report
 conditional_outputs:
-  - redundancy_analysis
-  - sub_skill_candidates
-  - eval_expectations
+  - skill_package         # not emitted on redundancy halt
+  - redundancy_analysis   # emitted when registry provided
+  - sub_skill_candidates  # emitted on decomposition
+  - eval_expectations     # emitted on successful build
 depends_on:
   - skill.meta.zpwo.v5_0_0
   - skill.meta.mma.v5_0_0
@@ -41,8 +41,8 @@ memory_reads:
   - experience_bank
   - obsidian
 memory_writes:
-  - threadex
-  - experience_bank
+  - threadex              # graph edges for new skill relationships
+  - experience_bank       # seed experiences only (migration_seed source); runtime experiences are NOT written at build time
 token_budget: large
 risk_level: medium
 model_preference: opus
@@ -105,7 +105,7 @@ The critical distinction: Skill Builder produces procedural skill specs. It does
 | migrate | Legacy XML skill | XSkill package (upgraded architecture) | Converting XML to new format |
 | refactor | Existing skill.md + MMA fix_plan | Revised XSkill package | After MMA flags quality issues |
 | decompose | Large skill.md | Parent skill + sub-skills + xScripts | Breaking monolith into composable units |
-| package | Validated skill family | Distribution-ready bundle | Preparing for marketplace or plugin install |
+| package | Validated skill family | Distribution-ready bundle | Preparing for marketplace or plugin install (PLANNED -- not yet operational) |
 
 ## Workflow
 
@@ -159,12 +159,14 @@ Before building any new skill, Skill Builder compares against the existing regis
 ## Sub-Skills and xScripts
 
 ### Sub-Skills (sub_skills/)
-Reusable procedural components that can serve multiple parent skills. A sub-skill is a full XSkill package nested inside a parent.
+Reusable procedural components nested inside a parent skill package. Sub-skills are **private components** -- they do not get their own registry entries, IDs, or standalone manifests. They are scoped to their parent and accessed through the parent's workflow.
+
+If a sub-skill becomes useful to multiple parent skills, it should be promoted to a full standalone skill with its own ID, manifest, and registry entry. Until then, it stays private.
 
 **Criteria for extraction:**
-- The procedure appears in 2+ skills
-- It has clear inputs and outputs independent of the parent
-- It can be tested and scored independently
+- The procedure has clear inputs and outputs independent of the parent workflow
+- It can be tested independently (even if not registered independently)
+- It reduces the parent skill.md below the 400-line budget
 
 ### xScripts (scripts/)
 Deterministic operations that should execute as code, not as LLM prompts.
@@ -175,37 +177,49 @@ Deterministic operations that should execute as code, not as LLM prompts.
 - It can be tested with unit tests
 - Examples: validation, formatting, scoring calculation, file operations
 
-## Phase Behavior Declaration
+## Phase Behavior Declaration (Locked Schema Fields)
 
-Every skill built by Skill Builder must declare its phase behavior:
+Every skill built by Skill Builder must declare its phase behavior using these exact frontmatter field names. ZPWO and MMA consume these mechanically.
+
+**Locked frontmatter field:** `phase_type`
+**Locked enum:** `exploratory | compositional | executional | resonant`
 
 | Phase Type | Description | Example Skills |
 |-----------|-------------|----------------|
 | exploratory | Generates candidates, explores options, diverges | Market research, competitor analysis |
 | compositional | Structures and frames, converges options | Offer architecture, funnel design |
 | executional | Produces deliverables, implements plans | Copy writing, code generation |
-| resonance-oriented | Polishes for human impact, maximizes persuasion | Voice editing, headline optimization |
+| resonant | Polishes for human impact, maximizes persuasion | Voice editing, headline optimization |
 
-This declaration feeds ZPWO's cadence routing and MMA's phase-aware scoring.
+**Locked frontmatter field:** `maturity_stage`
+**Locked enum:** `seed | developing | production | mature`
 
-## Domain and Context Framing
+This declaration feeds ZPWO's cadence routing and MMA's phase-aware scoring. Skills without these fields will fail structural validation.
 
-Skills must declare domain awareness:
+## Domain and Context Framing (Locked Schema Fields)
+
+Skills must declare domain awareness using these exact frontmatter field names:
+
+**Locked frontmatter field:** `domain_context`
 
 ```yaml
 domain_context:
-  primary_domain: ecommerce    # ecom, saas, b2b, coaching, apps, health
-  sub_domain: supplement        # niche within domain
-  market_awareness: direct_response  # market type
-  industry_patterns: [urgency, social_proof, authority]  # known patterns
-  voice_orientation: conversational  # formal, conversational, technical, provocative
+  primary_domain: ecommerce    # ecom | saas | b2b | coaching | apps | health | general
+  sub_domain: supplement        # niche within domain (freeform string)
+  market_awareness: direct_response  # direct_response | content | enterprise | community
+  industry_patterns: [urgency, social_proof, authority]  # list of known patterns
+  voice_orientation: conversational  # formal | conversational | technical | provocative
 ```
+
+**Locked manifest field:** `domain_context` (same structure, compiled from frontmatter)
 
 This enables domain-specific scoring in MMA and contextual routing in ZPWO.
 
-## Eval Expectations
+## Eval Expectations (Locked Schema Fields)
 
-Every skill package must include eval expectations that define what "good" looks like:
+Every skill package must include eval expectations. These define what "good" looks like and are the basis for proving the architecture improves real performance.
+
+**Locked frontmatter field:** `eval_expectations`
 
 ```yaml
 eval_expectations:
@@ -221,6 +235,8 @@ eval_expectations:
       target: medium
   control_test: "Run base task without skill, then with skill, compare scores"
 ```
+
+**Locked manifest field:** `eval_expectations` (same structure, compiled from frontmatter)
 
 ## Lifecycle Tracking
 
