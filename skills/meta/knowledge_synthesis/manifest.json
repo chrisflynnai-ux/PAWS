@@ -1,0 +1,81 @@
+{
+  "id": "skill.meta.knowledge_synthesis.v1_0_0",
+  "name": "Knowledge Synthesis Pipeline",
+  "version": "1.0.0",
+  "status": "active",
+  "category": "meta",
+  "tags": ["meta", "knowledge", "extraction", "synthesis", "atoms", "filtering", "experience-bank"],
+  "description": "Extracts candidate atoms from raw sources, classifies, scores, filters, and only admits validated atoms into the Superskills system. The knowledge refinery.",
+  "relationships": {
+    "depends_on": ["skill.meta.zpwo.v5_0_0", "skill.meta.mma.v5_0_0"],
+    "delegates_to": ["skill.meta.skill_builder.v1_0_0"],
+    "complements": []
+  },
+  "tool_requirements": ["validate"],
+  "memory_contract": {
+    "reads": ["threadex", "experience_bank", "obsidian"],
+    "writes": ["threadex", "experience_bank"]
+  },
+  "input_schema": [
+    {"name": "source_material", "type": "any", "required": true},
+    {"name": "synthesis_mode", "type": "string", "required": true, "enum": ["extract", "evaluate", "import", "enrich", "audit"]},
+    {"name": "target_domain", "type": "string", "required": true}
+  ],
+  "conditional_input_schema": [
+    {"name": "existing_skill_registry", "type": "json", "condition": "novelty_detection"},
+    {"name": "domain_context", "type": "markdown", "condition": "domain_aware_extraction"},
+    {"name": "quality_threshold", "type": "float", "condition": "custom_threshold", "default": 0.7}
+  ],
+  "output_schema": [
+    {"name": "candidate_atoms", "type": "list"},
+    {"name": "synthesis_report", "type": "markdown"}
+  ],
+  "conditional_output_schema": [
+    {"name": "experience_records", "type": "jsonl", "condition": "experiences_extracted"},
+    {"name": "skill_seeds", "type": "list", "condition": "skill_seeds_identified"},
+    {"name": "script_candidates", "type": "list", "condition": "scripts_identified"},
+    {"name": "rejection_log", "type": "jsonl", "condition": "always"}
+  ],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "large",
+    "risk_level": "medium"
+  },
+  "synthesis_modes": {
+    "extract": "Pull atoms from raw source material",
+    "evaluate": "Score external skills for potential adoption",
+    "import": "Bring validated atoms into the system",
+    "enrich": "Add new patterns to existing skills from runtime observations",
+    "audit": "Review existing atoms for decay, redundancy, or upgrade"
+  },
+  "atom_types": ["skill_seed", "experience", "script", "pattern", "failure", "reference"],
+  "admission_criteria": {
+    "usefulness": {"weight": 0.30, "threshold": 0.6},
+    "novelty": {"weight": 0.25, "threshold": 0.4},
+    "coherence": {"weight": 0.20, "threshold": 0.5},
+    "domain_fit": {"weight": 0.15, "threshold": 0.5},
+    "token_efficiency": {"weight": 0.10, "threshold": 0.3}
+  },
+  "admission_thresholds": {
+    "priority": 0.85,
+    "standard": 0.70,
+    "review": 0.50,
+    "reject": 0.50
+  },
+  "lifecycle_signals": ["compounding", "stale", "decaying", "redundant", "orphaned"],
+  "eval_suite": "knowledge-synthesis-core",
+  "package": {
+    "has_examples": true,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": true
+  },
+  "provenance": {
+    "migrated_from": "human-authored-new",
+    "migration_date": "2026-03-20",
+    "migration_tool": "human-authored-rebuild",
+    "validated": true
+  }
+}

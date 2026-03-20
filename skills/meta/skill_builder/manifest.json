@@ -1,0 +1,72 @@
+{
+  "id": "skill.meta.skill_builder.v1_0_0",
+  "name": "Skill Builder",
+  "version": "1.0.0",
+  "status": "active",
+  "category": "meta",
+  "tags": ["meta", "skill-creation", "packaging", "validation", "composition", "relational"],
+  "description": "Builds canonical XSkill packages from source material with redundancy detection, sub-skill extraction, eval expectations, and phase behavior declaration.",
+  "relationships": {
+    "depends_on": ["skill.meta.zpwo.v5_0_0", "skill.meta.mma.v5_0_0"],
+    "delegates_to": [],
+    "complements": ["skill.meta.knowledge_synthesis.v1_0_0"]
+  },
+  "tool_requirements": ["validate", "migrate"],
+  "memory_contract": {
+    "reads": ["threadex", "experience_bank", "obsidian"],
+    "writes": ["threadex", "experience_bank"]
+  },
+  "input_schema": [
+    {"name": "source_material", "type": "any", "required": true},
+    {"name": "build_mode", "type": "string", "required": true, "enum": ["new_build", "migrate", "refactor", "decompose", "package"]},
+    {"name": "target_family", "type": "string", "required": true}
+  ],
+  "conditional_input_schema": [
+    {"name": "existing_skill_registry", "type": "json", "condition": "redundancy_detection"},
+    {"name": "domain_context", "type": "markdown", "condition": "domain_aware_build"},
+    {"name": "voice_profile", "type": "yaml", "condition": "persona_aware_build"}
+  ],
+  "output_schema": [
+    {"name": "skill_package", "type": "directory"},
+    {"name": "build_report", "type": "markdown"}
+  ],
+  "conditional_output_schema": [
+    {"name": "redundancy_analysis", "type": "markdown", "condition": "registry_provided"},
+    {"name": "sub_skill_candidates", "type": "list", "condition": "decomposition_identified"},
+    {"name": "eval_expectations", "type": "yaml", "condition": "always"}
+  ],
+  "runtime": {
+    "model_preference": "opus",
+    "token_budget": "large",
+    "risk_level": "medium"
+  },
+  "build_modes": {
+    "new_build": "Fresh XSkill from raw source material",
+    "migrate": "Convert legacy XML with architectural upgrade",
+    "refactor": "Revise existing skill after MMA fix_plan",
+    "decompose": "Break monolith into parent + sub-skills + xScripts",
+    "package": "Prepare validated family for distribution"
+  },
+  "phase_types": ["exploratory", "compositional", "executional", "resonance-oriented"],
+  "redundancy_thresholds": {
+    "redundant": 0.80,
+    "complementary": 0.30,
+    "upgrade_candidate": 0.60
+  },
+  "lifecycle_signals": ["compounding", "plateau", "decaying", "superseded"],
+  "eval_suite": "skill-builder-core",
+  "package": {
+    "has_examples": true,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": true
+  },
+  "provenance": {
+    "migrated_from": "human-authored-new",
+    "migration_date": "2026-03-20",
+    "migration_tool": "human-authored-rebuild",
+    "validated": true
+  }
+}
