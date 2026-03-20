@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "version": "1.0",
+    "project": "<client_or_brand>",
+    "last_updated": "YYYY-MM-DD"
+  },
+
+  "icp_summary": {
+    "one_sentence": "<e.g., founders of B2B SaaS doing $0–$2M ARR who need predictable pipeline>",
+    "segments": [
+      {
+        "name": "<segment name>",
+        "description": "<who they are + context>",
+        "priority": "primary"
+      }
+    ]
+  },
+
+  "context": {
+    "industry": "<industry>",
+    "business_model": "<B2B/B2C/services/etc>",
+    "typical_stage": "<e.g., pre-seed to series A>",
+    "constraints": [
+      "<budget/time/tooling constraints that shape decisions>"
+    ]
+  },
+
+  "2pm_tuesday_problem": {
+    "situation": "<where they are when pain hits>",
+    "pain_description": "<specific pain, not abstract>",
+    "what_they_try_now": ["<attempt>", "<attempt>"],
+    "why_it_fails": ["<reason>", "<reason>"]
+  },
+
+  "goals_and_jobs": {
+    "primary_goals": ["<goal>", "<goal>"],
+    "secondary_goals": ["<goal>", "<goal>"],
+    "jobs_to_be_done": [
+      {
+        "job": "<job statement>",
+        "success_looks_like": "<measurable outcome>"
+      }
+    ]
+  },
+
+  "pains_and_objections": {
+    "top_pains_ranked": [
+      { "pain": "<pain>", "severity": 10 },
+      { "pain": "<pain>", "severity": 8 }
+    ],
+    "common_objections": [
+      {
+        "objection": "<e.g., 'this won't work for our niche'>",
+        "what_they_mean": "<the real fear>",
+        "how_to_address": "<how content should respond>"
+      }
+    ],
+    "risk_sensitivity": {
+      "high_risk_topics": ["<claims to avoid>", "<sensitive areas>"],
+      "proof_required_for": ["<pricing>", "<ROI>", "<results>"]
+    }
+  },
+
+  "beliefs_and_awareness": {
+    "current_beliefs": ["<belief>", "<belief>"],
+    "misconceptions": ["<misconception>", "<misconception>"],
+    "awareness_stage": "<unaware | problem-aware | solution-aware | product-aware>",
+    "desired_belief_shift": "<what we want them to believe after reading>"
+  },
+
+  "language_and_voice_of_customer": {
+    "words_they_use": ["<exact phrases>", "<exact phrases>"],
+    "words_they_hate": ["<phrase>", "<phrase>"],
+    "metaphors_that_land": ["<metaphor domain>", "<metaphor domain>"],
+    "channels": ["<newsletter>", "<LinkedIn>", "<podcasts>", "<Slack communities>"]
+  },
+
+  "content_preferences": {
+    "preferred_formats": ["how-to", "case study", "checklist", "contrarian essay"],
+    "content_tolerance": {
+      "length": "<short/medium/long>",
+      "technicality": "<low/medium/high>",
+      "humor": "<none/light/medium>"
+    },
+    "what_they_share": [
+      "<content that makes them look smart>",
+      "<content that saves them time>",
+      "<content that signals taste>"
+    ]
+  },
+
+  "call_to_action_fit": {
+    "best_next_step": "<e.g., book a call | download lead magnet | reply to email>",
+    "cta_tone": "<low pressure | direct | permission-based>",
+    "offer_hooks": ["<hook>", "<hook>"]
+  }
+}

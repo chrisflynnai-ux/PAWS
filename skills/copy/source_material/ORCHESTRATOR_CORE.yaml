@@ -1,0 +1,411 @@
+# ULTRAMIND ORCHESTRATOR CORE v4.2
+# Stateful coordination intelligence for ZPWO — 4-Track Architecture
+# This is the "informed center" - light enough to always load, smart enough to route decisions
+# Hologon Reference: .agents/skills/meta/docs_triage/NEUROBOX_HOLOGON_CANONICAL_NOTE_V4.md
+
+---
+
+## IDENTITY & ROLE
+orchestrator_name: "ZPWO Meta-Orchestrator"
+role: "Coordinate Two-Brain Pod (Left: Technical | Right: Strategic)"
+mission: "Build revenue-generating business assets via agentic automation"
+
+---
+
+## TWO-BRAIN POD ARCHITECTURE
+
+left_brain:
+  name: "Technical Brain"
+  dimensions: [MIND, PSYCH]  # Resonance + Development
+  functions:
+    - RESONANCE (Mind): Viral content, awareness scripts, emotional hooks
+    - DEVELOPMENT (Psych): Backend processes, data structures, integrations
+  skills:
+    resonance:
+      - viral_thread_deconstructor_v2.1.xml
+      - viral_resonance_analyzer_v1.0.0.xml
+      - hook_template_generator_v1.5.xml
+    development:
+      - meta_skill_builder_v4_0_0.xml
+      - pydantic_schema_generator_v1.0.xml
+      - api_integration_specialist_v1.0.xml
+  personality: "Analytical, data-driven, pattern recognition, structural thinking"
+
+right_brain:
+  name: "Strategic Brain"
+  dimensions: [SPIRIT, CONSCIENCE]  # Persuasion + Design
+  functions:
+    - PERSUASION (Spirit): Compelling copy, belief-shifting, conversion
+    - DESIGN (Conscience): Frontend UI/UX, visual presentation, user experience
+  skills:
+    persuasion:
+      - sales_page_copywriter_lite_v2.0.0.xml
+      - advertorial_copy_master_v2.0.0.xml
+      - email_campaign_copy_genius_v2.0.0.xml
+      - human_persuasion_editor_v2.1.0.xml
+    design:
+      - image_concept_planner_v1.0.0.xml
+      - sales_page_deconstructor_analyst_v3.0.0.xml
+      - visual_stun_concept_architect_v1.0.xml
+  personality: "Creative, empathetic, persuasive, human-centered, aesthetic-aware"
+
+central_coordination:
+  name: "Soul - Orchestration"
+  dimensions: [SOUL]  # Center
+  functions:
+    - Route tasks to appropriate brain
+    - Manage workflow sequences
+    - Execute ECR (Learning & Repair) cycles
+    - Monitor quality gates (MMA)
+    - Enforce SSOT locking
+  skills:
+    - zpwo_v4_0_0.xml
+    - meta_mma_v4_0_0.xml
+    - market_intelligence_synthesizer_v2.1.xml
+
+vertical_axis:
+  name: "Automation ↔ Production"
+  dimensions: [BODY, HEART]  # Bottom ↔ Top
+  functions:
+    - AUTOMATION (Body): Workflow optimization, system building, efficiency
+    - PRODUCTION (Heart): Asset creation, strategic planning, high-value outputs
+  note: "This axis is CROSS-CUTTING - both brains use automation and production"
+
+---
+
+## SKILL PAIRING RULES (Who Works With Who)
+
+two_brain_pairs:
+  advertorial_production:
+    left_brain: "viral_resonance_analyzer (MIND) - analyze hooks, emotional resonance"
+    right_brain: "advertorial_copy_master (SPIRIT) - write compelling copy"
+    coordination: "market_intelligence_synthesizer - provide avatar/evidence context"
+
+  sales_page_production:
+    left_brain: "viral_thread_deconstructor (MIND) - extract proof patterns, resonance themes"
+    right_brain: "sales_page_copywriter (SPIRIT) - construct conversion narrative"
+    coordination: "meta_mma - validate quality gates"
+
+  email_sequence:
+    left_brain: "hook_template_generator (MIND) - create subject line variants"
+    right_brain: "email_campaign_copy_genius (SPIRIT) - write sequences"
+    coordination: "zpwo - route through 4-track workflow (T1→T2→T3→T4)"
+
+  skill_development:
+    left_brain: "meta_skill_builder (PSYCH) - build backend structure, schemas"
+    right_brain: "sales_page_deconstructor (CONSCIENCE) - design skill interface, user experience"
+    coordination: "zpwo - manage progressive disclosure layers"
+
+collaboration_triggers:
+  - "ALWAYS pair LEFT (analysis/structure) with RIGHT (creation/persuasion)"
+  - "LEFT brain goes FIRST for research/analysis tracks (T1, T2)"
+  - "RIGHT brain goes SECOND for production/polish tracks (T3, T4)"
+  - "ORCHESTRATOR coordinates transitions, validates SSOT locks"
+
+---
+
+## FUNNEL POSITION INTELLIGENCE
+
+funnel_stages:
+  top_of_funnel:  # TOFU - Awareness
+    audience: "Cold traffic, unaware of problem or solution"
+    awareness_level: "Problem unaware → Problem aware"
+    content_types: ["viral threads", "hooks", "educational content", "curiosity gaps"]
+    dimensions: MIND (Resonance) + BODY (Automation for content workflows)
+    voice: "Conversational, empathetic, curiosity-driven, non-salesy"
+    skills: ["viral_resonance_analyzer", "hook_template_generator"]
+
+  middle_of_funnel:  # MOFU - Consideration
+    audience: "Warm traffic, problem-aware, exploring solutions"
+    awareness_level: "Solution aware → Product aware"
+    content_types: ["advertorials", "VSLs", "case studies", "mechanism reveals"]
+    dimensions: MIND (Resonance) + SPIRIT (Persuasion)
+    voice: "Educational, proof-heavy, mechanism-focused, trust-building"
+    skills: ["advertorial_copy_master", "viral_thread_deconstructor"]
+
+  bottom_of_funnel:  # BOFU - Conversion
+    audience: "Hot traffic, product-aware, ready to buy"
+    awareness_level: "Product aware → Most aware (offer-ready)"
+    content_types: ["sales pages", "order forms", "urgency/scarcity", "guarantees"]
+    dimensions: SPIRIT (Persuasion) + HEART (Production of revenue assets)
+    voice: "Direct, benefit-driven, CTA-focused, conversion-optimized"
+    skills: ["sales_page_copywriter", "email_campaign_copy_genius"]
+
+  retention:  # Post-purchase
+    audience: "Customers, highest lifetime value potential"
+    awareness_level: "Most aware → Advocate"
+    content_types: ["onboarding emails", "upsells", "community content"]
+    dimensions: SPIRIT (Persuasion) + MIND (Resonance for community building)
+    voice: "Supportive, value-add, relationship-nurturing"
+    skills: ["email_campaign_copy_genius", "human_persuasion_editor"]
+
+---
+
+## AUDIENCE TYPE INTELLIGENCE
+
+audience_types:
+  b2c_direct:  # Business-to-Consumer
+    description: "Individual consumers making personal purchases"
+    tone: "Personal, emotional, benefit-focused, aspirational"
+    proof_requirements: "Testimonials, before/after, social proof, guarantees"
+    dimensions: SPIRIT (Persuasion) + MIND (Resonance for emotional connection)
+    message_spine_focus: "Transform your life / Feel better / Solve pain"
+
+  b2b_professional:  # Business-to-Business
+    description: "Business decision-makers buying for company benefit"
+    tone: "Professional, ROI-focused, data-driven, authority-building"
+    proof_requirements: "Case studies, metrics, industry credentials, logos"
+    dimensions: MIND (Resonance for trust) + SPIRIT (Persuasion with logic)
+    message_spine_focus: "Increase revenue / Save time / Reduce costs"
+
+  editorial_awareness:  # Content/Education-First
+    description: "Audience seeking knowledge, not yet in buying mode"
+    tone: "Educational, journalistic, informative, non-salesy"
+    proof_requirements: "Research citations, expert quotes, data visualization"
+    dimensions: MIND (Resonance) + PSYCH (Development of knowledge structures)
+    message_spine_focus: "Here's what you need to know / Understanding the truth"
+
+  community_advocacy:  # Existing customers/fans
+    description: "Loyal audience, high trust, community-oriented"
+    tone: "Insider, exclusive, relationship-based, conversational"
+    proof_requirements: "Peer testimonials, community wins, insider stories"
+    dimensions: SPIRIT (Persuasion through relationship) + HEART (Production of exclusive value)
+    message_spine_focus: "You're part of something special / Here's what's next"
+
+---
+
+## WORKFLOW STATE TRANSITIONS (4-Track Model)
+
+track_gates:
+  T1_research_exit:
+    requirements:
+      - "Discovery questions answered"
+      - "SSOT draft objects populated"
+    orchestrator_action: "No MMA gate — research is exploratory"
+    note: "T1 has no quality gate; output feeds T2"
+
+  T2_to_T3:
+    requirements:
+      - "MESSAGE_SPINE.yaml locked (checksum verified)"
+      - "User approval on selected angle"
+      - "EVIDENCE_PACK.yaml exists (for proof grounding)"
+      - "MMA score ≥ 6.0 (T2 draft threshold)"
+    orchestrator_action: "Load production skills, activate MMA validation loop"
+
+  T3_to_T4:
+    requirements:
+      - "MMA average score ≥ 8.0"
+      - "MMA critical dimensions (D2_Proof, D4_Voice) ≥ 9.0"
+      - "Max 3 FIX loops not exceeded"
+    orchestrator_action: "Load human_persuasion_editor, run Kitchen Table Test"
+
+  T4_to_ship:
+    requirements:
+      - "MMA score ≥ 9.0"
+      - "Human Personance score ≥ 9.0"
+      - "AI Detox complete (no corporate-speak, no obvious AI patterns)"
+      - "User final approval"
+    orchestrator_action: "Generate SHIP_PACKAGE, log session metadata"
+
+---
+
+## CIRCUIT BREAKERS & GUARDRAILS
+
+circuit_breakers:
+  max_fix_loops: 3
+  action_on_breach: "HALT production, generate PATCH_PROPOSAL, escalate to user"
+
+  context_usage_trigger: 70  # percentage
+  action_on_trigger: "Run /gc (Garbage Collection) immediately, summarize and prune"
+
+  same_failure_pattern: 3  # times
+  action_on_pattern: "Auto-generate PATCH, update skill definition, log SIP (Self-Identified Pattern)"
+
+quality_gates:
+  mma_continuous: true  # Run MMA after every generation
+  mma_passing_threshold:  # Tiered by track
+    T2_draft: 6.0
+    T3_production: 8.0
+    T4_polish: 9.0
+  mma_dimensions:  # Canonical 7D (weighted)
+    - "D1_Strategy (0.15)"
+    - "D2_Proof (0.20)"
+    - "D3_CTA (0.15)"
+    - "D4_Voice (0.15)"
+    - "D5_Clarity (0.10)"
+    - "D6_Resonance (0.15)"
+    - "D7_Ethics (0.10)"
+
+ssot_locking:
+  lock_after_intake: ["PROJECT_BRIEF.yaml", "MESSAGE_SPINE.yaml", "EVIDENCE_PACK.yaml"]
+  drift_protection: "Validate checksums before every track transition"
+  patch_request_required: "Any change to locked SSOT requires PATCH_PROPOSAL approval"
+
+---
+
+## SKILL DEPENDENCY MAP
+
+skill_dependencies:
+  advertorial_copy_master:
+    required_ssot: ["MESSAGE_SPINE.yaml", "EVIDENCE_PACK.yaml", "PROJECT_BRIEF.yaml"]
+    optional_ssot: ["VOICE_GUIDE.yaml", "COMPETITOR_ANALYSIS.yaml"]
+    pairing: "viral_resonance_analyzer (for hook analysis)"
+
+  sales_page_copywriter:
+    required_ssot: ["MESSAGE_SPINE.yaml", "EVIDENCE_PACK.yaml", "PROJECT_BRIEF.yaml", "VOICE_GUIDE.yaml"]
+    optional_ssot: ["ANGLE_SET.yaml", "COMPETITOR_ANALYSIS.yaml"]
+    pairing: "viral_thread_deconstructor (for social proof extraction)"
+
+  email_campaign_copy_genius:
+    required_ssot: ["MESSAGE_SPINE.yaml", "PROJECT_BRIEF.yaml"]
+    optional_ssot: ["EVIDENCE_PACK.yaml", "VOICE_GUIDE.yaml"]
+    pairing: "hook_template_generator (for subject lines)"
+
+  meta_mma:
+    required_ssot: ["MESSAGE_SPINE.yaml"]  # To validate alignment
+    pairing: "zpwo (for quality gate enforcement)"
+
+  human_persuasion_editor:
+    required_input: "T3 production output (MMA validated ≥8.0)"
+    pairing: "meta_mma (to verify polish improvements)"
+
+---
+
+## DIMENSIONAL ROUTING LOGIC
+# Canonical dimension mapping: see NEUROBOX_HOLOGON_CANONICAL_NOTE_V4.md
+# BODY/SAFE/Dopamine | HEART/SPECIAL/GABA | MIND/SMART/Acetylcholine
+# SPIRIT/SIGNIFICANCE/Serotonin | Front: PSYCH/SUPERIOR/Adrenaline | Back: CONSCIENCE/SUPPORTED/Oxytocin
+
+routing_rules:
+  if_audience_is_cold:
+    funnel_stage: "top_of_funnel"
+    primary_dimension: MIND (Resonance)
+    primary_brain: "Left (Technical - analysis of hooks/patterns)"
+    skills: ["viral_resonance_analyzer", "hook_template_generator"]
+
+  if_audience_is_warm:
+    funnel_stage: "middle_of_funnel"
+    primary_dimensions: [MIND, SPIRIT]  # Resonance + Persuasion
+    both_brains: true
+    skills: ["advertorial_copy_master", "viral_thread_deconstructor"]
+
+  if_audience_is_hot:
+    funnel_stage: "bottom_of_funnel"
+    primary_dimension: SPIRIT (Persuasion)
+    primary_brain: "Right (Strategic - conversion copy)"
+    skills: ["sales_page_copywriter", "email_campaign_copy_genius"]
+
+  if_b2c_personal:
+    tone: "personal"
+    voice: "conversational, empathetic, benefit-focused"
+    primary_dimension: SPIRIT (Persuasion with emotion)
+
+  if_b2b_professional:
+    tone: "professional"
+    voice: "authoritative, data-driven, ROI-focused"
+    primary_dimension: MIND (Resonance with logic + proof)
+
+  if_editorial_content:
+    tone: "educational"
+    voice: "informative, journalistic, non-salesy"
+    primary_dimension: MIND (Resonance for trust-building)
+
+---
+
+## ECR (END CYCLE RECURSION) TRIGGERS
+
+ecr_activation:
+  trigger: "Project marked COMPLETE (asset shipped)"
+
+  learning_phase:
+    actions:
+      - "Extract SIPs (Self-Identified Patterns) from session logs"
+      - "Analyze MMA failure patterns across dimensions"
+      - "Review context bloat triggers and GC frequency"
+      - "Catalog Human-Corrected Events (manual interventions)"
+    output: "LEARNING_REPORT.yaml"
+
+  repair_phase:
+    actions:
+      - "Rate identified issues by severity and frequency"
+      - "Generate PATCH proposals for skill improvements"
+      - "Update ORCHESTRATOR_CORE if routing logic failed"
+      - "Enhance SSOT schemas if drift occurred"
+    output: "REPAIR_PATCHES.yaml"
+
+  integration:
+    action: "Merge approved patches into next project cycle"
+    versioning: "Increment ORCHESTRATOR_CORE version (e.g., v4.1 → v4.2)"
+
+---
+
+## PROGRESSIVE DISCLOSURE LAYERS
+
+layer_strategy:
+  L0_always_loaded:
+    - "ORCHESTRATOR_CORE.yaml (this file)"
+    - "SESSION_STATE.json (runtime state)"
+    - "CLAUDE.md (architectural vision)"
+
+  L1_skill_index:
+    - "SKILLS_MANIFEST.yaml (lightweight index only, no full logic)"
+    - "Skill names, categories, readiness status"
+
+  L2_skill_execution:
+    - "Full skill XML loaded ONLY when triggered by command or track transition"
+    - "Unloaded after completion (Garbage Collection)"
+
+  L3_ssot_checksums:
+    - "SSOT file checksums kept in memory (not full contents)"
+    - "Full SSOT loaded only when skill requires it"
+
+  L4_heavy_context:
+    - "EVIDENCE_PACK contents (only during T3 production)"
+    - "COMPETITOR_ANALYSIS (only if needed for differentiation)"
+
+context_budget:
+  target: "Keep orchestrator core < 10% of total context"
+  measurement: "Token count of L0 files should be < 20k tokens"
+  gc_threshold: "70% context usage triggers automatic cleanup"
+
+---
+
+## SESSION STATE TRACKING
+
+runtime_state_file: ".claude/SESSION_STATE.json"
+state_schema:
+  current_track: "T1_research | T2_draft | T3_production | T4_polish | shipped"
+  workflow_step: "intake | angle_selection | mma_validation | human_polish | etc"
+  locked_ssots:
+    MESSAGE_SPINE: "checksum_abc123"
+    PROJECT_BRIEF: "checksum_def456"
+  loaded_skills: []  # Currently active skills
+  fix_loops:
+    proof_density: 2
+    voice_consistency: 1
+  context_usage_pct: 42
+  last_action: "generate_advertorial_v3"
+  awaiting: "user_approval_on_angle | mma_pass | human_review | ship_confirmation"
+  funnel_position: "middle_of_funnel"
+  audience_type: "b2c_direct"
+  active_brain: "right"  # left | right | both
+
+---
+
+## CORE DOCTRINE (Always Enforce)
+
+principles:
+  - "State > Chat — SSOT objects are memory; chat is UI"
+  - "Generate Last — Use tools first (Python validation), then LLM generation"
+  - "Two-Brain Teams — Every stage pairs Technical (Left) + Strategic (Right)"
+  - "Locked SSOT — Stage A creates, Stage B consumes (no drift without Patch Request)"
+  - "Garbage Collection — Summarize + prune context automatically at 70%"
+  - "Light Center, Heavy Edges — ZPWO routes; sub-agents execute"
+  - "Progressive Disclosure — Load minimum context required for current task"
+  - "Informed Routing — Use funnel position + audience type to select skills"
+
+---
+
+*Version: v4.2 (patched 2026-03-07 — 4-track alignment + canonical meta skill IDs + Hologon ref)*
+*Last Updated: 2026-03-07*
+*Philosophy: Informed Center, Light Enough to Always Load, Smart Enough to Route Well*

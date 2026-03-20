@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "version": "1.0",
+    "business_name": "<name>",
+    "last_updated": "YYYY-MM-DD"
+  },
+
+  "positioning": {
+    "one_liner": "<what you do + for whom + result>",
+    "category": "<e.g., ghostwriting studio | growth agency | coaching>",
+    "differentiators": [
+      "<differentiator>",
+      "<differentiator>"
+    ],
+    "anti_positioning": [
+      "<what you are NOT>",
+      "<what you refuse to do>"
+    ]
+  },
+
+  "offers": [
+    {
+      "name": "<offer name>",
+      "type": "<productized service | retainer | course | consulting>",
+      "who_its_for": "<ICP subset>",
+      "core_outcome": "<measurable outcome>",
+      "deliverables": ["<deliverable>", "<deliverable>"],
+      "timeline": "<timeframe>",
+      "pricing": {
+        "range": "<optional>",
+        "model": "<monthly/one-time/per-project>"
+      },
+      "guarantees_or_boundaries": [
+        "<what you guarantee>",
+        "<what you do not guarantee>"
+      ]
+    }
+  ],
+
+  "proof": {
+    "case_studies": [
+      {
+        "client": "<client type or anonymized label>",
+        "starting_point": "<baseline>",
+        "result": "<outcome>",
+        "timeframe": "<time>",
+        "notes": "<what mattered>"
+      }
+    ],
+    "credibility_markers": ["<credential>", "<result>", "<experience>"],
+    "assets": {
+      "logos_folder": "knowledge/assets/logos/",
+      "brand_guidelines": "knowledge/assets/brand_guidelines.pdf"
+    }
+  },
+
+  "messaging": {
+    "core_messages": [
+      "<message pillar>",
+      "<message pillar>"
+    ],
+    "claims_allowed": [
+      "<claim you can substantiate>",
+      "<claim you can substantiate>"
+    ],
+    "claims_disallowed": [
+      "<claim to avoid>",
+      "<claim to avoid>"
+    ],
+    "tone_constraints": [
+      "<e.g., confident, never snarky>",
+      "<e.g., no hype>"
+    ]
+  },
+
+  "operating_constraints": {
+    "compliance": ["<legal/compliance constraints>"],
+    "brand_safety": ["<topics to avoid>"],
+    "approval_process": "<who must approve what>",
+    "source_requirements": "<e.g., cite stats; avoid unverifiable claims>"
+  },
+
+  "content_strategy": {
+    "primary_channels": ["<newsletter>", "<LinkedIn>", "<blog>"],
+    "cadence": "<e.g., weekly newsletter + 3 LI posts>",
+    "content_pillars": ["<pillar>", "<pillar>"],
+    "repurposing_rules": [
+      "Newsletter → 3 LinkedIn posts → 1 email",
+      "Long-form → thread → short video script"
+    ]
+  }
+}

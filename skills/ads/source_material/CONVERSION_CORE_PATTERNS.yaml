@@ -1,0 +1,426 @@
+# CONVERSION CORE PATTERNS
+# Synthesized from NotebookLM extraction (Pair 1)
+# Source: Conversion Visual Language + Copywriting Architectures
+# Version: 1.0.0
+# Updated: 2026-02-09
+
+---
+
+# ============================================================================
+# UNIVERSAL CONVERSION PRINCIPLES
+# These apply across ALL conversion verticals (Ecom, Sales, Advertorial)
+# ============================================================================
+
+conversion_philosophy:
+  core_truth: |
+    Conversion design is not about beauty—it's about removing friction,
+    building trust, and guiding confident progression toward value.
+    Every element must either build trust, reduce fear, or drive action.
+  
+  the_5_second_rule: |
+    Within 5 seconds, the user must:
+    1. Understand the outcome (what they get)
+    2. See proof it works (trust signal)
+    3. Know what to do next (clear CTA)
+  
+  functional_flow_doctrine:
+    - "Trust before ask"
+    - "Prove before promise"
+    - "Simplify before sell"
+    - "Repeat without annoying"
+
+# ============================================================================
+# PILLAR 1: TRUST ARCHITECTURE
+# Visual patterns that answer "Why should I trust you?"
+# ============================================================================
+
+trust_architecture:
+  
+  placement_rules:
+    above_fold_required:
+      - Star ratings with count
+      - "As Featured In" logos (if available)
+      - Benefit-driven headline (not generic welcome)
+      - High-quality hero visual
+    
+    proximity_to_cta:
+      - Guarantee badges directly below CTA
+      - Security symbols near payment fields
+      - "Risk-free" micro-copy adjacent to buttons
+  
+  badge_patterns:
+    trust_bar:
+      description: "Horizontal strip of authority logos"
+      placement: "Below hero OR below Add-to-Cart"
+      content:
+        - Certifications (USDA, FDA, etc.)
+        - Specific claims (Made in USA, Cruelty-Free)
+        - NOT generic "Quality" badges
+      styling:
+        height: "60-80px"
+        logo_treatment: "Grayscale, hover: color (optional)"
+        spacing: "Equal distribution, 5-7 logos max"
+    
+    guarantee_seal:
+      description: "Visual promise of risk reversal"
+      styles:
+        - "Gold rosette with ribbon"
+        - "Green checkmark shield"
+        - "Circular badge with border"
+      copy_patterns:
+        - "100% Satisfaction Guarantee"
+        - "90-Day Money-Back Guarantee"
+        - "60-Night Sleep Trial"
+      placement: "Immediately below primary CTA"
+  
+  as_featured_in:
+    rule: "Logos + Quotes, not logos alone"
+    example: '"The missing link in dental care" - WSJ'
+    placement: "Below hero, catches scroll investigators"
+  
+  human_presence:
+    when: "Services, high-ticket, founder-led brands"
+    what: "Real team photos, not stock"
+    why: "Humanizes brand, builds parasocial trust"
+
+# ============================================================================
+# PILLAR 2: URGENCY & SCARCITY
+# Visual cues that compel immediate action
+# ============================================================================
+
+urgency_scarcity:
+  
+  countdown_patterns:
+    cart_expiration:
+      copy: "Your cart expires in 10:00"
+      placement: "Slide-out cart or checkout page"
+      behavior: "Real timer, not fake reset"
+    
+    offer_deadline:
+      visual: "Bold announcement bar (often red)"
+      copy: "New Year Sale - Ends Tonight"
+      placement: "Top of page, sticky optional"
+    
+    anti_pattern: "Timers that reset on refresh destroy trust"
+  
+  stock_indicators:
+    inventory_bar:
+      visual: "Progress bar showing depletion"
+      copy: "97% Sold - February Batch"
+      psychology: "Visceral scarcity visualization"
+    
+    low_stock_tag:
+      copy: ["Low Stock", "Selling Fast", "Only 3 Left"]
+      placement: "Collection pages AND product pages"
+    
+    real_time_activity:
+      copy: "100+ people purchased in the last hour"
+      placement: "Near product title"
+      psychology: "Simulates busy retail environment"
+  
+  fomo_elements:
+    social_count:
+      copy: "Join 200,000+ Americans"
+      placement: "Near signup/buy button"
+      psychology: "Being left behind if don't join"
+    
+    waitlist_proof:
+      copy: "Sold out 12 times"
+      function: "Credibility + Scarcity combined"
+
+# ============================================================================
+# PILLAR 3: SOCIAL PROOF INTEGRATION
+# Evidence that overcomes skepticism
+# ============================================================================
+
+social_proof:
+  
+  testimonial_design:
+    required_elements:
+      - Photo or video (UGC > polished)
+      - Full name + "Verified Buyer" badge
+      - Source indicator (Trustpilot logo, etc.)
+      - Bold headline summarizing result
+    
+    headline_examples:
+      - "No more knee pain"
+      - "Finally sleeping through the night"
+      - "My skin has never looked better"
+    
+    visual_evidence_rule: |
+      Text-only reviews are ignored.
+      Photos/videos of user WITH product convert better.
+  
+  before_after:
+    layout: "Side-by-side grid"
+    labeling: "Day 1 vs Day 30" or "Before vs After"
+    verticals: "Critical for beauty, health, fitness"
+  
+  review_snippets:
+    hero_integration:
+      format: "★★★★★ 4.9/5 based on 5,000+ reviews"
+      placement: "Immediately under main headline"
+      function: "Anchor high value before scroll"
+    
+    sticky_badge:
+      format: "Rated Excellent"
+      behavior: "Sticky on scroll OR repeated frequently"
+      verticals: "Long-form sales pages"
+
+# ============================================================================
+# PILLAR 4: CTA HIERARCHY
+# Strategic button placement and styling
+# ============================================================================
+
+cta_hierarchy:
+  
+  primary_button:
+    contrast_rule: "Must stand out from brand palette"
+    colors: "Bright green, orange, or red on neutral pages"
+    
+    text_patterns:
+      avoid: ["Submit", "Click Here", "Learn More"]
+      use:
+        - "Get Instant Access"
+        - "Start My Transformation"
+        - "Rush My Order"
+        - "Claim Your Discount"
+    
+    sizing:
+      mobile: "Full-width (100%)"
+      desktop: "Min 200px, prominent padding"
+  
+  sticky_cta:
+    mobile:
+      element: "Bottom bar with ATC button"
+      behavior: "Always visible while scrolling"
+      content: "Price + Primary CTA"
+    
+    desktop:
+      element: "Sticky sidebar OR floating button"
+      trigger: "After scrolling past hero"
+  
+  repetition_pattern:
+    rule: "Repeat CTA after every major value section"
+    sections: ["Problem", "Solution", "Proof", "Offer"]
+    format: "Can alternate button + text link"
+  
+  multi_cta_sections:
+    bundle_selector:
+      layout: "Horizontal or vertical tiers"
+      default: "Pre-select 'Best Value' option"
+      highlighting: "Border or background on recommended"
+
+# ============================================================================
+# PILLAR 5: PRICE PRESENTATION
+# Visual framing to increase AOV and perceived value
+# ============================================================================
+
+price_presentation:
+  
+  anchoring_techniques:
+    strikethrough:
+      format: "$̶1̶2̶0̶ → $79"
+      rule: "Always show original price"
+    
+    savings_highlight:
+      format: "Save $80"
+      color: "Red or green (contrasting)"
+      placement: "Adjacent to sale price"
+  
+  micro_costing:
+    purpose: "Reframe large purchase as trivial daily cost"
+    formats:
+      - "$1.00/day"
+      - "$0.50/serving"
+      - "Less than a cup of coffee"
+    verticals: "Subscriptions, supplements, consumables"
+  
+  payment_options:
+    installment_logos:
+      providers: ["Afterpay", "Klarna", "Affirm"]
+      copy: "4 interest-free payments of $17.48"
+      placement: "Near price display"
+  
+  comparison_tables:
+    format: "Us vs. Them"
+    structure:
+      - Feature column
+      - Your product (green checkmarks)
+      - Competitors (red X's)
+    function: "Establish value beyond price"
+
+# ============================================================================
+# PILLAR 6: RISK REVERSAL
+# Lower psychological barrier to purchase
+# ============================================================================
+
+risk_reversal:
+  
+  guarantee_patterns:
+    specific_promises:
+      examples:
+        - "90-Day Money Back"
+        - "Lifetime Warranty"
+        - "60-Night Sleep Trial"
+      rule: "Specific > Generic ('Satisfaction Guaranteed')"
+    
+    placement: "Immediately below Primary CTA"
+    visual: "Badge/seal format"
+  
+  subscription_reassurance:
+    copy_patterns:
+      - "Pause, Skip, or Cancel Anytime"
+      - "No commitment"
+      - "No strings attached"
+    placement: "Near subscription toggle"
+    font: "Smaller, but visible"
+  
+  trial_framing:
+    button_text:
+      - "Try Risk-Free"
+      - "Start Your Trial"
+      - "See If It Works For You"
+    psychology: "Shifts mindset from 'Spending' to 'Testing'"
+
+# ============================================================================
+# COPYWRITING INTEGRATION
+# How copy and design work together
+# ============================================================================
+
+copy_design_integration:
+  
+  headline_formulas:
+    dream_outcome:
+      structure: "[End Result] + [Time Period] + [Emotional Payoff]"
+      example: "Calm your horse in just 2 weeks. Enjoy safer rides."
+    
+    outcome_mechanism:
+      structure: "[Outcome] by [Timeframe] using [Unique Mechanism]"
+      example: "Delete wrinkles by 10 years guaranteed"
+    
+    scanner_hook:
+      rule: "Clarity over cleverness"
+      test: "Does the user think 'This is for me' in 3 seconds?"
+  
+  pas_framework:
+    problem: "Call out specific issue (empathy)"
+    agitate: "Turn up heat (failed attempts, consequences)"
+    solution: "Present product as logical answer"
+  
+  micro_copy_placement:
+    cta_proximity:
+      what: "Risk reversal copy near buttons"
+      examples:
+        - "30-day money-back guarantee"
+        - "Free shipping over $100"
+        - "Ships in 24h"
+  
+  repetition_strategy:
+    rule: "Repeat core value prop 6-8 times"
+    formats: "Headline, bullets, visuals, proof sections"
+    why: "Increases comprehension for skimmers"
+
+# ============================================================================
+# VERTICAL APPLICATION NOTES
+# How patterns apply to specific page types
+# ============================================================================
+
+vertical_applications:
+  
+  ecom_pdp:
+    emphasis:
+      - Trust bar in buy box
+      - Sticky ATC on mobile
+      - Bundle selector with "Best Value"
+      - Per-serving price breakdown
+    unique:
+      - Image carousel as "slide deck" with overlays
+      - Accordions for details (keep buy box clean)
+  
+  sales_page:
+    emphasis:
+      - CTA repetition after each section
+      - Stacked proof sections
+      - Value comparison tables
+      - Long-form testimonial integration
+    unique:
+      - Visual rhythm (dense → sparse → dense)
+      - Guarantee section before final CTA
+  
+  advertorial:
+    emphasis:
+      - Editorial trust (byline, date, read time)
+      - Soft CTAs ("Check Availability")
+      - Inline text links early
+      - Native image styles (real > polished)
+    unique:
+      - No "Buy Now" in hero
+      - Publication styling throughout
+      - Education before ask
+
+# ============================================================================
+# COMPONENT QUICK REFERENCE
+# Copy-paste patterns for implementation
+# ============================================================================
+
+component_patterns:
+  
+  trust_bar:
+    html_structure: |
+      <section class="trust-bar">
+        <span class="trust-bar__label">As Featured In:</span>
+        <div class="trust-bar__logos">
+          [logo] [logo] [logo] [logo] [logo]
+        </div>
+      </section>
+  
+  guarantee_badge:
+    html_structure: |
+      <div class="guarantee-badge">
+        <img src="badge-icon.svg" />
+        <span class="guarantee-badge__text">90-Day Money-Back Guarantee</span>
+      </div>
+  
+  sticky_cta:
+    html_structure: |
+      <div class="sticky-cta">
+        <span class="sticky-cta__price">$79</span>
+        <button class="sticky-cta__button">Add to Cart</button>
+      </div>
+  
+  review_snippet:
+    html_structure: |
+      <div class="review-snippet">
+        <span class="stars">★★★★★</span>
+        <span class="rating">4.9/5</span>
+        <span class="count">based on 5,000+ reviews</span>
+      </div>
+
+# ============================================================================
+# FRAMER MOTION SUGGESTIONS
+# Animation patterns for conversion components
+# ============================================================================
+
+motion_patterns:
+  
+  trust_elements:
+    entry: "fadeIn + slideUp, duration: 400ms, stagger: 100ms"
+    trigger: "On viewport enter"
+  
+  countdown_timer:
+    pulse: "Subtle scale pulse on seconds change"
+    urgency: "Color shift to red when < 5 minutes"
+  
+  cta_button:
+    hover: "Scale 1.02 + shadow increase"
+    click: "Scale 0.98 + haptic feedback feel"
+    attention: "Subtle pulse every 10s if not clicked"
+  
+  social_proof:
+    testimonial_cards: "Fade + slide on scroll reveal"
+    before_after: "Wipe transition or slider interaction"
+  
+  price_reveal:
+    strikethrough: "Animate line-through from left"
+    savings: "Pop-in with slight bounce"

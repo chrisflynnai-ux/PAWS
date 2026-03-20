@@ -1,0 +1,153 @@
+graph TD
+    subgraph Input["📥 INPUT"]
+        I1[VIDEO_BRIEF]
+        I2[CONTENT_TYPE]
+        I3[VOICE_GUIDE<br/>optional]
+    end
+
+    subgraph Router["🔀 STRUCTURE ROUTER"]
+        R1{What type<br/>of video?}
+        R2[Educational → Six-Gate / 4Cs / Deep Dive]
+        R3[Story-Driven → 5-Line / Documentary]
+        R4[Tutorial → Tactical Tutorial]
+        R5[Pillar → Symbiotic Guide]
+        R6[Service Demo → Buyer Roast]
+        R7[Short-Form → Viral Loop]
+        R8[Podcast → Interview Architecture]
+    end
+
+    subgraph Packaging["📦 PACKAGING ARCHITECT"]
+        P1[3-5 Title Options]
+        P2[Thumbnail Concept]
+        P3[Click Confirmation Plan]
+    end
+
+    subgraph Hook["🎣 HOOK ENGINE"]
+        H1{Select Hook Type}
+        H2[3A Framework]
+        H3[4Cs Trust Opener]
+        H4[Context/Conflict Dance]
+        H5[Visual Curiosity Loop]
+        H6[Scale Back Open]
+        H7[Impossible Result]
+        H8[Multi-Channel Script:<br/>Audio + Visual + Text]
+    end
+
+    subgraph Retention["⚡ RETENTION ENGINEERING"]
+        RE1[Map Macro Loop]
+        RE2[Place Micro Re-hooks<br/>every 30-60s]
+        RE3[Core Learning<br/>before minute 2]
+        RE4[But/Therefore Pacing]
+        RE5[Trans Rhythm Check]
+        RE6[Danger Zone Prevention]
+    end
+
+    subgraph Story["📖 STORY INTEGRATION"]
+        S1[Select Arc]
+        S2[Map Emotional Beats]
+        S3[PAST Scene Construction]
+        S4[Story → Lesson Bridge]
+    end
+
+    subgraph Body["✍️ BODY SCRIPT + VISUAL DIRECTION"]
+        B1[Write Body per Structure]
+        B2[B-Roll Cues]
+        B3[Text-on-Screen]
+        B4[Camera/Framing Notes]
+        B5[Pattern Breaks every 15-20s]
+    end
+
+    subgraph Close["🔗 CLOSE + SESSION BRIDGE"]
+        C1[Summary Statement]
+        C2[CTA if applicable]
+        C3[Session Time Bridge<br/>to next content]
+    end
+
+    subgraph QA["✅ QUALITY GATES"]
+        Q1{7 Gates Pass?}
+        Q2[Structure ✓]
+        Q3[Hook ✓]
+        Q4[Retention ✓]
+        Q5[Story ✓]
+        Q6[Visual ✓]
+        Q7[Platform ✓]
+        Q8[Voice ✓]
+    end
+
+    subgraph Output["📤 OUTPUT"]
+        O1[VIDEO_SCRIPT]
+        O2[HOOK_OPTIONS]
+        O3[PACKAGING_SPEC]
+        O4[RETENTION_MAP]
+        O5[VISUAL_DIRECTION]
+        O6[REPURPOSE_BRIEF]
+    end
+
+    I1 --> R1
+    I2 --> R1
+    R1 --> R2
+    R1 --> R3
+    R1 --> R4
+    R1 --> R5
+    R1 --> R6
+    R1 --> R7
+    R1 --> R8
+    R2 --> P1
+    R3 --> P1
+    R4 --> P1
+    R5 --> P1
+    R6 --> P1
+    R7 --> P1
+    R8 --> P1
+    P1 --> P2
+    P2 --> P3
+    P3 --> H1
+    H1 --> H2
+    H1 --> H3
+    H1 --> H4
+    H1 --> H5
+    H1 --> H6
+    H1 --> H7
+    H2 --> H8
+    H3 --> H8
+    H4 --> H8
+    H5 --> H8
+    H6 --> H8
+    H7 --> H8
+    H8 --> RE1
+    RE1 --> RE2
+    RE2 --> RE3
+    RE3 --> RE4
+    RE4 --> RE5
+    RE5 --> RE6
+    RE6 --> S1
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    S4 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> B5
+    B5 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> Q1
+    Q1 -->|Fail| B1
+    Q1 -->|Pass| O1
+    O1 --> O2
+    O2 --> O3
+    O3 --> O4
+    O4 --> O5
+    O5 --> O6
+
+    style Input fill:#e1f5fe
+    style Router fill:#fff3e0
+    style Packaging fill:#fff3e0
+    style Hook fill:#fff3e0
+    style Retention fill:#fff3e0
+    style Story fill:#fff3e0
+    style Body fill:#fff3e0
+    style Close fill:#fff3e0
+    style QA fill:#fce4ec
+    style Output fill:#e8f5e9

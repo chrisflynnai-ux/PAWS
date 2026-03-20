@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  PATCH: COPY LEAD — PROOF INJECTOR UPGRADE v1.0.0
+  Extends: skill.copy_lead.v1_0_0
+  Purpose: Inject Proof-First architecture, workflows, and 22-proof-type library
+           into Copy Lead so every draft is built on calibrated, high-believability proof.
+-->
+
+<Patch
+  patch_id="patch.copy_lead.proof_injector.v1_0_0"
+  target_skill_id="skill.copy_lead.v1_0_0"
+  name="Copy Lead — Proof Injector"
+  version="1.0.0"
+  tier="beta"
+  status="active"
+>
+  <!-- ================================================================== -->
+  <!-- METADATA                                                            -->
+  <!-- ================================================================== -->
+
+  <Meta>
+    <n>Copy Lead — Proof Injector</n>
+    <Subtitle>Proof Architecture & 22 Proof Types Upgrade</Subtitle>
+    <Description>
+      Upgrade for Copy Lead that installs a Proof-First workflow and a library
+      of 22 proof types so every claim in a sales/landing/offer page is supported
+      by calibrated, high-fake-resistance evidence. Shifts Copy Lead from
+      "promise-led with some proof" to "proof-architect with precise promise matching."
+    </Description>
+    <Owner>ULTRAMIND Copy Ecosystem</Owner>
+    <CreatedBy agent_or_human="agent" agent_id="knowledge_refinery_pipeline_v2"/>
+    <DateCreated>2026-02-17</DateCreated>
+    <LastUpdated>2026-02-17</LastUpdated>
+
+    <Tags>
+      <Tag>proof</Tag>
+      <Tag>evidence_architecture</Tag>
+      <Tag>proof_first</Tag>
+      <Tag>social_proof</Tag>
+      <Tag>empirical_proof</Tag>
+      <Tag>psychological_proof</Tag>
+      <Tag>experiential_proof</Tag>
+    </Tags>
+  </Meta>
+
+  <!-- ================================================================== -->
+  <!-- PURPOSE & IDENTITY                                                  -->
+  <!-- ================================================================== -->
+
+  <Purpose>
+    <PrimeDirective>
+      Transform Copy Lead into a Proof-First production writer that:
+      • defines a clear Promise Stack,
+      • calibrates proof strength to claim intensity,
+      • selects high fake-resistance proof assets,
+      • uses self-experience and psychological proof ethically,
+      • and deploys the right mix of proof types at the exact moments
+        where doubt spikes across the Neuro-Box axes.
+    </PrimeDirective>
+
+    <CoreThesis><![CDATA[
+PROOF > PROMISE — OPERATING PRINCIPLE
+══════════════════════════════════════
+
+  • Big promises: useful for grabbing attention.
+  • Proof: converts attention into belief, and belief into action.
+
+Copy Lead's job (with Proof Injector installed) is NOT to inflate claims, but to:
+  • Mine, structure, and deploy proof so that:
+      "This is real… and it will work for me" becomes inevitable.
+  • Treat proof as an architecture across the entire page, not a handful of testimonials.
+  • Place stronger, harder-to-fake proof wherever the claims are bigger and
+    the decision is riskier (especially near CTA and high-skepticism claims).
+    ]]></CoreThesis>
+
+    <WhatThisPatchIsNot>
+      <Item>NOT a replacement for existing ProofStacking — it deepens and systematizes it.</Item>
+      <Item>NOT a compliance engine — assumes upstream legal/compliance review where needed.</Item>
+      <Item>NOT a raw research harvester — depends on Evidence Packs and research inputs.</Item>
+      <Item>NOT a generic “add more testimonials” bot — it matches proof type to the specific claim and moment of doubt.</Item>
+    </WhatThisPatchIsNot>
+  </Purpose>
+
+  <!-- ================================================================== -->
+  <!-- SSOT EXTENSIONS                                                     -->
+  <!-- ================================================================== -->
+
+  <SSOTPatch>
+    <OptionalInputs>
+      <Input name="PROMISE_STACK_DOC">
+        Optional structured list of core claims:
+        Primary Outcome, Mechanism, Ease/Speed, plus secondary claims.
+      </Input>
+      <Input name="PROOF_LEDGER">
+        CSV or table with: proof item, type, claim supported, fake-resistance score,
+        channel/format, and where it has been used before.
+      </Input>
+      <Input name="EXPERIENCE_PROOF_OPTIONS">
+        Trials, demos, challenges, tests the prospect can run themselves.
+      </Input>
+      <Input name="PSYCHOLOGICAL_PROOF_PACK">
+        Jargon bursts, candid admissions, reasoning chains, guarantees,
+        and other language-based proof assets.
+      </Input>
+    </OptionalInputs>
+
+    <Outputs>
+      <Output id="PROOF_REQUIREMENTS_MATRIX" format="markdown">
+        Table mapping each claim in the Promise Stack to:
+        • required proof strength (low/medium/high)
+        • recommended proof types (from the 22-type library)
+        • placement moments in the page (Neuro-Box axis + section)
+      </Output>
+      <Output id="PROOF_LEDGER_UPDATED" format="csv">
+        Updated proof ledger with fake-resistance scores and deployment notes.
+      </Output>
+      <Output id="PROOF_INSERT_MAP" format="yaml">
+        Section-by-section map of where each proof asset is inserted or referenced
+        in the SALES_PAGE_DRAFT.
+      </Output>
+    </Outputs>
+  </SSOTPatch>
+
+  <!-- ================================================================== -->
+  <!-- PROGRESSIVE DISCLOSURE (ATOMIC PROOF MODULES)                      -->
+  <!-- ================================================================== -->
+
+  <ProgressiveDisclosure>
+
+    <!-- ============================================================== -->
+    <!-- L1: QUICK REFERENCE (Proof Mindset + 4 Rules)                   -->
+    <!-- ============================================================== -->
+
+    <Layer id="L1_proof" name="Proof Injector Quick Reference" token_budget="600">
+      <LoadPriority>on_activation</LoadPriority>
+
+      <ZeroPoint><![CDATA[
+{
+  "patch": "copy_lead_proof_injector",
+  "version": "1.0.0",
+  "desc": "Proof-First upgrade for Copy Lead: promise stack → proof calibration → high fake-resistance deployment + 22 proof types",
+  "extends_skill": "copy_lead",
+  "domain": "copy",
+  "modes": ["sales_page", "landing_page", "offer_page"],
+  "outputs": ["PROOF_REQUIREMENTS_MATRIX", "PROOF_LEDGER_UPDATED", "PROOF_INSERT_MAP"]
+}
+      ]]></ZeroPoint>
+
+      <CoreDoctrine><![CDATA[
+PROOF INJECTOR — 4 CORE RULES
+══════════════════════════════
+
+  1) Match Promise to Proof (Calibration)
+     • The bigger, riskier, or more life-changing the claim,
+       the heavier and more varied the proof stack must be.
+
+  2) Prefer Hard-to-Fake Evidence (Fake Resistance)
+     • Named, specific, externally verifiable proof beats
+       vague, anonymous, or easily staged assets.
+
+  3) Let Them Experience It (Self-Experience Proof)
+     • Whenever possible, let prospects test, sample, or see
+       the mechanism themselves instead of asking for trust.
+
+  4) Make It Feel True (Psychological Proof — Ethical)
+     • Language, structure, and reasoning should create the
+       sensation of truth without lying or over-claiming.
+       Psychological proof is framing, not fabrication.
+
+CONNECTION TO COPY LEAD:
+  • Copy Blocks: PROOF becomes an intentionally designed network,
+    not an afterthought.
+  • Neuro-Box: Proof is concentrated around big claims and CTA,
+    tuned to each axis (RESONATE, PERSUADE, INFLUENCE).
+      ]]></CoreDoctrine>
+    </Layer>
+
+    <!-- ============================================================== -->
+    <!-- L2: PROOF-FIRST ENGINE (WORKFLOWS + MODULES)                    -->
+    <!-- ============================================================== -->
+
+    <Layer id="L2_proof" name="Proof-First Engine" token_budget="4000">
+      <LoadPriority>on_activation</LoadPriority>
+
+      <!-- PROOF-FIRST WORKFLOW -->
+      <ProofFirstWorkflow><![CDATA[
+PROOF-FIRST WORKFLOW (Agentic Steps)
+════════════════════════════════════
+
+Step 1 — Define the Promise Stack (What are we actually claiming?)
+  • Primary Outcome Claim:
+      The “big win” — main dream outcome or transformation.
+  • Mechanism Claim:
+      Why this works and what makes it different (UMP/UMS in practice).
+  • Ease/Speed Claim:
+      How soon, how reliably, and how simply results can occur.
+  • Secondary Claims:
+      Supporting benefits, side benefits, and “quality of life” shifts.
+
+  OUTPUT:
+    PROMISE_STACK.md (3–7 bullets with explicit claim intensity: low/med/high)
+
+Step 2 — Proof Matching (Rule #1: Match Promise to Proof)
+  • For each claim, assign a Proof Strength Requirement:
+      LOW    → small, believable shifts (light proof: a few testimonials).
+      MEDIUM → meaningful results (mixed proof: testimonials + reasoning + numbers).
+      HIGH   → large money/health/identity claims (heavy proof: data + case studies +
+               third-party verification + demos/trials).
+
+  • Agent Behavior:
+      If claim sounds like “life-changing” or high monetary ROI,
+      default to HIGH until calibrated down.
+
+  OUTPUT:
+    PROOF_REQUIREMENTS_MATRIX:
+      claim → intensity (L/M/H) → recommended proof types → minimum # of assets.
+
+Step 3 — Fake-Resistance Scoring (Rule #2: Hard-to-Fake Wins)
+  • Assign each proof item a Fake-Resistance Score:
+      1 = Easy to fake
+          (anon testimonials, vague “this was great,” unverified screenshots)
+      2 = Somewhat credible
+          (named testimonials, rough details, partial context)
+      3 = Hard to fake
+          (platform-native screenshots, time-stamped records, public ranking, audits)
+      4 = Extremely hard to fake
+          (independent studies, official certifications, mainstream media)
+
+  • Deployment Rule:
+      • Place 3–4 proof near big claims and close.
+      • Avoid clusters of 1-level proof supporting HIGH claims.
+
+  OUTPUT:
+    PROOF_LEDGER_UPDATED.csv:
+      proof item, claim supported, type, fake-resistance score, recommended placement.
+
+Step 4 — Self-Experience Proof (Rule #3: Let Them See It Themselves)
+  • Transform abstract claims into:
+      – simple checks and tests they can do now,
+      – live or recorded demonstrations,
+      – trials/samples with a quick win path,
+      – short challenges or sprints with specific outcomes.
+
+  • Agent Directive:
+      Whenever possible replace “Trust me” with:
+        “Try this small test now,”
+        “Watch it work here,”
+        “Try this for X days and notice Y.”
+
+  OUTPUT:
+    EXPERIENCE_PROOF_PLAN.md:
+      list of tests/demos/trials/challenges + where they appear in the page.
+
+Step 5 — Psychological Proof (Rule #4: Emotional Believability)
+  • Use language and structure that signals:
+      – competence (precise, concrete, calm),
+      – honesty (candid admissions, scope limits),
+      – causality (clear cause→effect chains),
+      – rational inevitability (“so of course…”),
+      – confident but non-hypey tone.
+
+  • Agent Composition:
+      Combine:
+        • Explanatory reasoning (mechanism logic),
+        • Logical arguments (math/economics),
+        • Candid admissions,
+        • Guarantees calibrated to claim intensity.
+
+  OUTPUT:
+    PSYCHOLOGICAL_PROOF_PACK.md:
+      reasoning chains, math arguments, damaging admissions, guarantees ready to drop
+      into SALES_PAGE_DRAFT at doubt spikes.
+      ]]></ProofFirstWorkflow>
+
+      <!-- PROOF DEPLOYMENT MAP -->
+      <ProofDeployment><![CDATA[
+PROOF DEPLOYMENT STRATEGY (Where Proof Lives)
+══════════════════════════════════════════════
+
+Rule: Proof is deployed at the moment doubt appears — not randomly.
+
+Key Placements:
+  1) Right after bold claims
+     → stats, data, or studies; short testimonials; logic blocks.
+  2) When introducing mechanism (PERSUADE / Smart pyramid)
+     → explanatory reasoning + credible proof + selectively technical jargon.
+  3) When handling core objections
+     → case studies, comparisons, testimonials mapped to each constraint.
+  4) When price is revealed
+     → track record, ROI-style stats, social proof, and strong guarantees.
+  5) Right before and after CTA
+     → high fake-resistance proof + community/support proof.
+
+Neuro-Box Integration:
+  RESONATE:
+    • Psychological proof that they are understood and safe:
+      candid admissions, externalization, “it’s not your fault.”
+  PERSUADE:
+    • Heavy logic/data + social proof:
+      mechanism reasoning, studies, comparisons, case studies.
+  INFLUENCE:
+    • Risk removal + community proof:
+      guarantees, support, track record, media, awards, momentum metrics.
+
+Agent Output:
+  • PROOF_INSERT_MAP.yaml
+    section (HERO/LEAD/MECHANISM/PROOF/OFFER/CLOSE)
+      → claims in that section
+      → proof assets assigned (IDs from PROOF_LEDGER)
+      → proof types used (from 22-type library)
+      ]]></ProofDeployment>
+
+      <!-- PROOF MODULES (MINING / STACKING / PLACEMENT) -->
+      <ProofModules><![CDATA[
+PROOF MODULES (Collector → Composer → Inserter)
+═══════════════════════════════════════════════
+
+A) Proof Mining Module — COLLECTOR
+  Inputs:
+    • EVIDENCE_PACK, research docs, analytics, DM screenshots, reviews, studies,
+      certifications, press links, social metrics.
+
+  Steps:
+    1) Collect all raw proof assets into a central folder/db.
+    2) Tag each asset:
+         - proof_type (1–22),
+         - claim_supported (link to Promise Stack),
+         - fake_resistance_score (1–4),
+         - format (text, image, video, chart, link).
+    3) Reject assets that are:
+         - vague, unverifiable, inconsistent, misleading, or ethically dubious.
+
+  Output:
+    • PROOF_LEDGER (raw) → PROOF_LEDGER_UPDATED (scored).
+
+B) Proof Stacking Module — COMPOSER
+  Goal:
+    • Build a small, potent mix of proof types per major claim.
+
+  Stacking Rules:
+    • Use 2–4 proof types for each MAJOR claim:
+        - Psychological (reasoning/logic/jargon/guarantees)
+        - Empirical (data/studies/stats)
+        - Social (testimonials/case studies/social metrics)
+        - Experiential (demo/test/trial/challenge) when available.
+    • Do NOT use all 22 types for one claim (overkill; noise).
+
+  Anti-Overkill:
+    • More proof does not always mean more belief.
+    • The right few types, placed precisely, beat a long proof dump.
+
+C) Proof Placement Module — INSERTER
+  Doubt Mapping:
+    • Mechanism skepticism: “Why would this work at all?”
+    • Self-applicability: “Will it work for someone like me?”
+    • Price resistance: “Is this worth it versus my alternatives?”
+    • Trust fears: “Is this legit or another scam?”
+    • Time/effort doubts: “Do I realistically have capacity?”
+
+  Placement Actions:
+    • After each bold claim → at least one proof asset.
+    • Before CTA → high-proof mix: track record, testimonials, guarantee, community.
+    • Near mechanism → reasoning + 1–2 credible external proof types.
+    • Near objections → case studies & comparisons that mirror those constraints.
+
+  Output:
+    • PROOF_INSERT_MAP aligns with SECTION_MAP and SALES_PAGE_DRAFT
+      so downstream tools (NRA / Human Editor) can audit proof density and quality.
+      ]]></ProofModules>
+    </Layer>
+
+    <!-- ============================================================== -->
+    <!-- L3: PROOF TYPES LIBRARY (22 ATOMS)                              -->
+    <!-- ============================================================== -->
+
+    <Layer id="L3_proof_types" name="22 Proof Types Library" token_budget="4000">
+      <LoadPriority>when_needed</LoadPriority>
+
+      <ProofTypes><![CDATA[
+22 PROOF TYPES — ATOMIC LIBRARY
+═══════════════════════════════
+
+CATEGORY 1 — PSYCHOLOGICAL PROOF (Makes it feel true)
+───────────────────────────────────────────────────────
+
+1) Technical Jargon (Controlled Complexity)
+   • Purpose:
+       Signal expertise and real depth without overwhelming.
+   • How to Use:
+       1. Draft in plain language first.
+       2. Identify 1–3 moments where authority matters (mechanism, process).
+       3. Insert a SHORT burst of precise technical terms (1–2 sentences).
+       4. Immediately translate into plain English and benefits.
+   • Pattern:
+       JARGON_BURST → PLAIN_TRANSLATION → BENEFIT
+   • Guardrail:
+       Overuse kills clarity; treat like spice, not base.
+
+2) Candid Communication (Damaging Admissions)
+   • Purpose:
+       Build trust via specific, honest limitations paired with strengths.
+   • How to Use:
+       1. Pick a real, non-fatal limitation.
+       2. State it plainly (“Here’s the truth…”).
+       3. Follow with compensating strength or data-backed outcome.
+       4. Tie to buyer benefit (“So you know we’re not overselling this.”).
+   • Good Admissions:
+       not for everyone; results vary; small team; learning curve.
+   • Rule:
+       Must be real and specific — no vague faux-humility.
+
+3) Explanatory Reasoning (Cause→Effect Mechanism)
+   • Purpose:
+       Make claims believable by explaining WHY they work.
+   • How to Use:
+       1. Name common failure mode in the market.
+       2. Reveal hidden mechanism behind that failure (UMP).
+       3. Introduce your UMS as aligned with reality.
+       4. Close with inevitability (“That’s why results become predictable.”).
+
+4) Logical Arguments (Math / Economics / Rational Case)
+   • Purpose:
+       Create “hard to argue with” belief via simple arithmetic.
+   • How to Use:
+       1. Choose a baseline (time wasted, conversion rate, cost).
+       2. Scale to monthly/annual numbers.
+       3. Show what your solution changes.
+       4. End with rational inevitability (“Why wouldn’t you test this?”).
+   • Rule:
+       Numbers must be simple enough to verify mentally.
+
+5) Guarantees (Confidence Proof)
+   • Purpose:
+       Transfer risk away from buyer; demonstrate conviction.
+   • How to Use:
+       1. Identify main fear (wasting money/time, looking foolish).
+       2. Design guarantee to neutralize that fear.
+       3. Make terms crystal clear; no sneaky exclusions.
+       4. Scale guarantee strength with claim intensity.
+   • Ladder:
+       standard refund → extended refund → performance-based → “we pay you” kicker.
+
+CATEGORY 2 — EXPERIENTIAL PROOF (They can see/feel it)
+────────────────────────────────────────────────────────
+
+6) Testable Proof (Immediate Verification)
+   • Purpose:
+       Let prospect validate a claim right now.
+   • How to Use:
+       1. Find an observable symptom/indicator.
+       2. Give a short test they can run.
+       3. Interpret result in context of your mechanism.
+       4. Bridge into solution (“If you saw X, that’s why Y matters.”).
+   • Safety:
+       Must be simple and safe; no medical recklessness.
+
+7) Demonstration (Show It Working Live)
+   • Purpose:
+       Turn skepticism into certainty through observation.
+   • How to Use:
+       1. Pick a “wow” capability that proves mechanism.
+       2. Show it in realistic conditions.
+       3. Narrate what’s happening + why it matters.
+       4. Show before/after or time-lapse if possible.
+
+8) Trials and Samples (Try Before You Buy)
+   • Purpose:
+       Reduce risk; create first-hand belief.
+   • How to Use:
+       1. Define trial/sample scope and time.
+       2. Remove friction to start.
+       3. Provide quick-win path during trial.
+       4. Follow up with proof and path to full offer.
+
+9) Challenges and Contests (Gamified Proof)
+   • Purpose:
+       Turn results into a shared event with stakes and end-date.
+   • How to Use:
+       1. Create short challenge (3–14 days).
+       2. Give simple daily actions.
+       3. Define measurable success metric.
+       4. Offer stakes (bonus, refund condition, recognition).
+       5. Share participant wins as social proof.
+
+10) Comparisons (Side-by-Side Superiority)
+    • Purpose:
+        Make your differentiation visually obvious.
+    • How to Use:
+        1. Select dimensions buyers actually care about.
+        2. Compare to 1–3 key alternatives, not everyone.
+        3. Use concrete metrics where possible.
+        4. Present as simple table, not essay.
+    • Guardrail:
+        Be accurate; avoid defamation.
+
+11) Before-and-After (Visible Transformation)
+    • Purpose:
+        Compress the entire argument into a single glance.
+    • How to Use:
+        1. Standardize conditions (angle, lighting, timeframe).
+        2. Label timelines clearly.
+        3. Add minimal context + short testimonial.
+        4. Add credibility cues (same person, consistent settings).
+
+CATEGORY 3 — EMPIRICAL PROOF (Data & studies)
+───────────────────────────────────────────────
+
+12) Studies and Research (Scientific Support)
+    • Purpose:
+        Add external authority and measurable credibility.
+    • How to Use:
+        1. Match study to a specific claim.
+        2. Extract 1–2 key results in simple language.
+        3. Contextualize why the source is credible.
+        4. Clarify implications, not just jargon.
+
+13) Stats and Evidence (Hard Numbers)
+    • Purpose:
+        Make performance tangible and trackable.
+    • How to Use:
+        1. Use real sample sizes and baselines.
+        2. Compare before vs after or vs industry average.
+        3. Attribute where numbers came from (analytics, CRM, survey).
+        4. Explain why the numbers matter to reader.
+
+14) Infographics (Visualized Data)
+    • Purpose:
+        Turn complex data into instant comprehension.
+    • How to Use:
+        1. Focus on one main insight.
+        2. Use a simple chart/graph timeline or comparison.
+        3. Highlight pattern or key delta.
+        4. Add one-sentence takeaway.
+
+CATEGORY 4 — CREDIBLE PROOF (Borrowed Authority)
+──────────────────────────────────────────────────
+
+15) Third-Party Certifications (Independent Verification)
+    • Purpose:
+        Transfer trust from institutions/regulators to you.
+    • How to Use:
+        1. Obtain real certifications relevant to fears (safety, security, purity).
+        2. Show seals + plain-language explanation.
+        3. Place near risk-sensitive sections (checkout, guarantees).
+
+16) Track Record (History of Success)
+    • Purpose:
+        Prove repeatability and competence over time.
+    • How to Use:
+        1. Quantify wins (clients, years, success rate).
+        2. Mention honest range (“not everyone, here’s what we learned…”).
+        3. Tie to predictability: “We’ve solved this exact problem repeatedly.”
+
+17) Expert Endorsements (Credible People Vouch)
+    • Purpose:
+        Borrow trust from authorities your audience respects.
+    • How to Use:
+        1. Choose domain-relevant experts.
+        2. Get specific endorsements (what they saw/measured).
+        3. Include credentials + why they care.
+
+18) Media and Press Coverage (Reputation)
+    • Purpose:
+        Reduce scam suspicion; signal legitimacy.
+    • How to Use:
+        1. Show real articles/interviews.
+        2. Use recognizable outlets when possible.
+        3. Add one-line context (“Featured in X for Y.”).
+
+19) Awards and Recognition (External Validation)
+    • Purpose:
+        Signal competitive superiority.
+    • How to Use:
+        1. Name award, year, and awarding body.
+        2. Explain criteria in buyer-centric language.
+        3. Connect award to outcome (“award for client success rates,” etc.).
+
+CATEGORY 5 — SOCIAL PROOF (Other people validate it)
+─────────────────────────────────────────────────────
+
+20) Testimonials and Reviews (Customers Speak)
+    • Purpose:
+        Turn “sounds good” into “people like me got results.”
+    • How to Use:
+        1. Prefer specific over vague.
+        2. Include identity cues (name, role, situation).
+        3. Map each testimonial to an objection or constraint.
+
+21) Case Studies (Deep Proof Narrative)
+    • Purpose:
+        Provide rich, hard-to-fake success stories.
+    • How to Use:
+        1. Pick representative cases, not just outliers.
+        2. Show baseline → process → results → lessons.
+        3. Close with “If they did it, here’s how you can too.”
+
+22) Social Media Metrics (Momentum Proof)
+    • Purpose:
+        Signal widespread engagement and social validation.
+    • How to Use:
+        1. Use platform-native metrics (views, saves, comments).
+        2. Emphasize momentum windows (“in 72 hours…”).
+        3. Include representative comments showing real outcomes or enthusiasm.
+      ]]></ProofTypes>
+    </Layer>
+
+    <!-- ============================================================== -->
+    <!-- L4: HEURISTICS + CHECKLISTS (PROOF OPS)                         -->
+    <!-- ============================================================== -->
+
+    <Layer id="L4_proof_reference" name="Proof Ops Reference" token_budget="2000">
+      <LoadPriority>rarely</LoadPriority>
+
+      <ProofHeuristics><![CDATA[
+PROOF INJECTOR HEURISTICS (Rules of Thumb)
+══════════════════════════════════════════
+
+  H-P1  Proof Before Persuasion:
+        For high claims, show at least one strong proof element
+        within one scroll of the claim.
+
+  H-P2  Claim-Proof Symmetry:
+        The more extraordinary the promise, the more extraordinary
+        and multi-layered the proof stack must be.
+
+  H-P3  Volume vs Quality:
+        1 extremely hard-to-fake proof can beat 10 weak, generic ones.
+
+  H-P4  Specific > Vague:
+        “12.4% conversion lift in 21 days” >> “big boost in conversions.”
+
+  H-P5  Map Every Objection:
+        Every major objection should have at least one dedicated
+        proof asset (testimonial, case study, comparison, or metric).
+
+  H-P6  Avoid Proof Dumps:
+        Distribute proof where doubt naturally spikes; never drop a
+        massive proof block far away from the claims it supports.
+
+  H-P7  Verifiable Beats Bragging:
+        Anything a skeptical stranger could verify (or imagine verifying)
+        carries more weight than self-congratulation.
+
+  H-P8  Psychological Proof is Real Proof:
+        Clean reasoning, honest admissions, and well-calibrated guarantees
+        often matter as much as data.
+
+  H-P9  “Could This Be Faked?” Filter:
+        If the answer feels like “easily,” downgrade the proof or pair it
+        with harder-to-fake assets.
+
+  H-P10 ARC Alignment:
+        Proof must never drift into manipulation. If the reader would feel
+        “pressured” instead of “clarified,” reframe or remove.
+      ]]></ProofHeuristics>
+
+      <ProofChecklists><![CDATA[
+PROOF MINING CHECKLIST:
+  □ Do we have at least 1 proof asset for each major claim in the Promise Stack?
+  □ Have we tagged each proof item by type (1–22) and fake-resistance (1–4)?
+  □ Are we rejecting vague, unverifiable, or misleading assets?
+  □ Do we have at least:
+       – 1 empirical proof (data/study),
+       – 1 social proof (testimonial/case),
+       – 1 psychological proof (reasoning/guarantee)?
+
+PROOF DEPLOYMENT CHECKLIST:
+  □ After each bold claim: at least 1 proof asset?
+  □ Before CTA: high fake-resistance proof + community support?
+  □ Near mechanism: reasoning + external credibility?
+  □ Near price: value comparison, track record, and guarantee present?
+  □ For each core objection/constraint: dedicated proof resolving it?
+
+ARC & ETHICS CHECK:
+  □ Are any proofs exaggerated beyond what data supports?
+  □ Would a skeptical but fair reader feel “informed” or “pressured”?
+  □ Are guarantees and scarcity real and clearly described?
+  □ Is self-experience proof safe, realistic, and honest?
+      ]]></ProofChecklists>
+    </Layer>
+  </ProgressiveDisclosure>
+
+  <!-- ================================================================== -->
+  <!-- COMPATIBILITY NOTES                                                -->
+  <!-- ================================================================== -->
+
+  <Compatibility>
+    <Extends>
+      <Item>ProofStacking module in Copy Lead L2 — this patch deepens calibration, fake-resistance scoring, and deployment.</Item>
+      <Item>Copy Blocks Density — increases intentional use and placement of PROOF blocks.</Item>
+      <Item>Neuro-Box Page Architecture — injects proof with awareness of each axis’ emotional/logic needs.</Item>
+    </Extends>
+    <Assumptions>
+      <Item>Copy Lead already has SSOT inputs: EVIDENCE_PACK, OFFER_BRIEF, UMP/UMS, BELIEF_CHAIN.</Item>
+      <Item>Downstream Neuro-Resonance Auditor can score proof placement and density with PROOF_INSERT_MAP overlay.</Item>
+    </Assumptions>
+  </Compatibility>
+
+  <!-- ================================================================== -->
+  <!-- VERSION HISTORY                                                     -->
+  <!-- ================================================================== -->
+
+  <VersionHistory>
+    <Version number="1.0.0" date="2026-02-17">
+      Initial Proof Injector upgrade.
+      • Added Proof-First Workflow (Promise Stack → Calibration → Fake Resistance → Experience Proof → Psychological Proof).
+      • Implemented Proof Mining, Proof Stacking, and Proof Placement modules.
+      • Added 22-type Proof Library and associated heuristics.
+      • Defined new SSOT outputs: PROOF_REQUIREMENTS_MATRIX, PROOF_LEDGER_UPDATED, PROOF_INSERT_MAP.
+    </Version>
+  </VersionHistory>
+
+</Patch>

@@ -1,0 +1,28 @@
+{
+  "skill": "content_script_architect",
+  "version": "1.0.0",
+  "desc": "Deep video production: YouTube, educational, podcast, story-driven scripts with retention engineering and visual direction",
+  "domain": "copy",
+  "tier": "production",
+  "model": "opus",
+  "triggers": ["video script", "youtube script", "podcast script", "educational video", "tutorial script", "webinar", "documentary", "story video", "retention engineering", "video hook"],
+  "anti_triggers": ["sales VSL", "LinkedIn post", "X thread", "carousel", "email copy", "sales page"],
+  "inputs": ["VIDEO_BRIEF", "CONTENT_TYPE"],
+  "optional_inputs": ["VOICE_GUIDE", "MESSAGE_SPINE", "EVIDENCE_PACK"],
+  "outputs": ["VIDEO_SCRIPT", "HOOK_OPTIONS", "PACKAGING_SPEC", "RETENTION_MAP", "VISUAL_DIRECTION", "REPURPOSE_BRIEF"],
+  "modules": {
+    "M1": "Script Structure Router (7 structures)",
+    "M2": "Video Hook Engine (6 patterns + supplementals)",
+    "M3": "Retention Engineering System (6 mechanisms)",
+    "M4": "Story Arc Library (4 arcs + PAST + bridges)",
+    "M5": "Visual Scripting Director (6 patterns)",
+    "M6": "Platform Optimization (algorithm signals + ratios)",
+    "M7": "Educational & Podcast Specialist"
+  },
+  "routing": {
+    "bright_line": "Camera/microphone + production = CSA. Typed social = VTD.",
+    "sister_skills": ["viral_theme_developer", "short_form_vsl_writer", "long_form_vsl_architect", "master_writing_partner", "strategic_copy_director"]
+  },
+  "quality_gates": 7,
+  "workflow_steps": 10
+}

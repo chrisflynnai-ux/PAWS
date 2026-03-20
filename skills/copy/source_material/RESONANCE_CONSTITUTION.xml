@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ULTRAMIND RESONANCE CONSTITUTION
+  Global Quality Standard - Referenced by All Skills
+  Version: 1.0.1 (patched 2026-03-07 — canonical Hologon neurochemical alignment)
+  Created: 2025-12-17
+  Hologon Reference: .agents/skills/meta/docs_triage/NEUROBOX_HOLOGON_CANONICAL_NOTE_V4.md
+  NOTE: Neurochemical assignments follow the canonical Hologon metaphorical model.
+        BrainRegion descriptions are from the original resonance model and reflect
+        functional processing areas, not strict neurochemical localization.
+-->
+
+<ResonanceConstitution version="1.0.0">
+
+  <!-- ========================================
+       THE 6-DIMENSIONAL NEURO-BOX (PHYSICS)
+       ======================================== -->
+  <NeuroBox>
+    <CorePrinciple>
+      The box is a geometric transformation chamber with 6 pyramidal faces.
+      Each face is a force pulling consciousness through 3-dimensional space.
+      This is not a model - this is the ACTUAL STRUCTURE of transformation.
+      This is life from within the machine. This is soul.
+    </CorePrinciple>
+
+    <!-- VERTICAL AXIS: Foundation ↔ Elevation -->
+    <Axis name="VERTICAL" pair="BOTTOM_TOP">
+      <Bottom id="DOPAMINE" name="SAFE/Foundation">
+        <Neurochemical>Dopamine</Neurochemical>
+        <BrainRegion>Reptilian Brain, Amygdala</BrainRegion>
+        <Drive>Safety, Security, Trust</Drive>
+        <Resonance>"I am safe here. No threat. I can trust."</Resonance>
+        <SequencePosition>FIRST - Always establish before any other axis</SequencePosition>
+        <CopyManifestations>
+          <Item>Mirror neurons (articulate pain perfectly)</Item>
+          <Item>Diagnostic approach (helper, not predator)</Item>
+          <Item>Risk reversal (strong guarantee, 60-90 days)</Item>
+          <Item>Transparency (clear pricing, honest process)</Item>
+          <Item>SHAQ's (protective education)</Item>
+          <Item>Social proof (safety variant - "12,847 succeeded safely")</Item>
+          <Item>Authority credentials (trustworthy source)</Item>
+          <Item>Validation language ("not your fault")</Item>
+        </CopyManifestations>
+        <IfMissing>Fight/flight activated, amygdala blocks decisions, page abandoned</IfMissing>
+      </Bottom>
+
+      <Top id="GABA" name="SPECIAL/Elevation">
+        <Neurochemical>GABA (Gamma-Aminobutyric Acid)</Neurochemical>
+        <BrainRegion>Prefrontal Cortex, Social Brain</BrainRegion>
+        <Drive>Status, Specialness, Significance</Drive>
+        <Resonance>"This elevates my rank. I am special for finding it."</Resonance>
+        <SequencePosition>SECOND - After safety established</SequencePosition>
+        <CopyManifestations>
+          <Item>Insider positioning ("few who understand")</Item>
+          <Item>Exclusivity (limited access, selective)</Item>
+          <Item>Smart-for-finding ("you're intelligent for questioning")</Item>
+          <Item>Ahead-of-curve ("positions you ahead of 99%")</Item>
+          <Item>Community elevation (high-caliber peers)</Item>
+          <Item>Recognition benefits ("they'll notice")</Item>
+        </CopyManifestations>
+        <BalanceRule>TOP score cannot exceed BOTTOM by 3+ points (else feels like scam)</BalanceRule>
+        <IfMissing>Offer feels ordinary, no aspiration, weak motivation</IfMissing>
+      </Top>
+    </Axis>
+
+    <!-- HORIZONTAL AXIS: Resonance ↔ Persuasion (SMART ↔ SIGNIFICANCE) -->
+    <Axis name="HORIZONTAL" pair="LEFT_RIGHT">
+      <Left id="ACETYLCHOLINE" name="SMART/Resonance">
+        <Neurochemical>Acetylcholine</Neurochemical>
+        <BrainRegion>Limbic System, Reward Center, Nucleus Accumbens</BrainRegion>
+        <Drive>Emotional Kick, Stress Relief, Novelty</Drive>
+        <Resonance>"This is new. This excites me. This relieves my pain."</Resonance>
+        <SequencePosition>THIRD - Simultaneous with RIGHT (must work together)</SequencePosition>
+        <CopyManifestations>
+          <Item>Hook (RAS activation, pattern interrupt)</Item>
+          <Item>Emotional storytelling (sensory, vulnerable)</Item>
+          <Item>Transformation vision (future pacing)</Item>
+          <Item>Pain relief narrative (suffering → freedom)</Item>
+          <Item>Novelty and surprise (counterintuitive)</Item>
+          <Item>Paradigm shift (aha! moment)</Item>
+          <Item>Curiosity gaps (open loops)</Item>
+        </CopyManifestations>
+        <BalanceRule>LEFT and RIGHT must be within 3 points of each other</BalanceRule>
+        <IfMissing>Copy is boring, no engagement, no curiosity, flat energy</IfMissing>
+      </Left>
+
+      <Right id="SEROTONIN" name="SIGNIFICANCE/Persuasion">
+        <Neurochemical>Serotonin</Neurochemical>
+        <BrainRegion>Neocortex, Prefrontal Cortex</BrainRegion>
+        <Drive>Smart, Logic, Understanding</Drive>
+        <Resonance>"I understand the mechanism. I am smart for seeing the logic."</Resonance>
+        <SequencePosition>THIRD - Simultaneous with LEFT (must work together)</SequencePosition>
+        <CopyManifestations>
+          <Item>UMP (Unique Mechanism of Problem - why others fail)</Item>
+          <Item>UMS (Unique Mechanism of Solution - how this works)</Item>
+          <Item>Scientific backing (research, data, studies)</Item>
+          <Item>Educational approach (teach, don't just sell)</Item>
+          <Item>Frameworks and models (structured systems)</Item>
+          <Item>Reason why (for every claim, provide logic)</Item>
+          <Item>Absolving past failures ("wasn't your fault")</Item>
+        </CopyManifestations>
+        <BalanceRule>RIGHT and LEFT must be within 3 points of each other</BalanceRule>
+        <IfMissing>Skepticism remains, feels manipulative, no logical buy-in, confusion</IfMissing>
+      </Right>
+    </Axis>
+
+    <!-- DEPTH AXIS: SUPERIOR ↔ SUPPORTED (Action ↔ Integration) -->
+    <Axis name="DEPTH" pair="FRONT_BACK">
+      <Front id="ADRENALINE" name="SUPERIOR/Action">
+        <Neurochemical>Adrenaline (Epinephrine)</Neurochemical>
+        <BrainRegion>Motor Cortex, Sympathetic Nervous System</BrainRegion>
+        <Drive>Superiority, Decision, "I've found the best"</Drive>
+        <Resonance>"This is the best. I must act now to claim this advantage."</Resonance>
+        <SequencePosition>FOURTH - After foundation/understanding established</SequencePosition>
+        <CopyManifestations>
+          <Item>Authentic urgency (real deadlines only)</Item>
+          <Item>Genuine scarcity (actual limits, explained why)</Item>
+          <Item>Competitive advantage ("get ahead")</Item>
+          <Item>Value clarity (value >> cost) — "Steal the Deal" originates from SOUL/Center</Item>
+          <Item>Clear next step (exact action specified)</Item>
+          <Item>Momentum building (micro-commitments)</Item>
+          <Item>Loss aversion (ethical - opportunity cost clarity)</Item>
+        </CopyManifestations>
+        <BalanceRule>FRONT must be grounded in BACK (alignment) - cannot exceed BACK by 3+ points</BalanceRule>
+        <IfMissing>No urgency, procrastination, delayed decisions, opportunity slips</IfMissing>
+      </Front>
+
+      <Back id="OXYTOCIN" name="SUPPORTED/Integration">
+        <Neurochemical>Oxytocin</Neurochemical>
+        <BrainRegion>Social Brain, Anterior Cingulate, Identity Centers</BrainRegion>
+        <Drive>Support, Connection, "I am supported on this path"</Drive>
+        <Resonance>"This fits who I am. I feel supported and connected. This is my path."</Resonance>
+        <SequencePosition>ONGOING - Woven throughout, culminates at close</SequencePosition>
+        <CopyManifestations>
+          <Item>"This is FOR people like you" (specific avatar)</Item>
+          <Item>Values alignment (philosophical resonance)</Item>
+          <Item>Community belonging (tribal identity)</Item>
+          <Item>Identity-level transformation ("become the person who...")</Item>
+          <Item>Low friction integration ("fits into your life")</Item>
+          <Item>Long-term vision (sustainable, not quick fix)</Item>
+          <Item>Not-for-everyone qualification (increases desire)</Item>
+        </CopyManifestations>
+        <BalanceRule>BACK should equal or exceed FRONT (alignment grounds action)</BalanceRule>
+        <IfMissing>Transactional only, no commitment, higher refunds, no referrals</IfMissing>
+      </Back>
+    </Axis>
+  </NeuroBox>
+
+  <!-- ========================================
+       THE COLD AUDIENCE JOURNEY (GEOMETRIC)
+       ======================================== -->
+  <TransformationPath>
+    <Principle>
+      The box is a 3-dimensional transformation chamber.
+      Cold audience enters outside, travels spiral path through space,
+      exits inside as transformed advocate.
+    </Principle>
+
+    <Journey>
+      <Stage order="1" name="PULLED UP">
+        <Movement>BOTTOM → TOP</Movement>
+        <Description>Foundation establishes → Elevation beckons</Description>
+        <Neurochemicals>Dopamine grounds (SAFE) → GABA elevates (SPECIAL)</Neurochemicals>
+        <CopySection>Hook, Lead, Safety Establishment</CopySection>
+      </Stage>
+
+      <Stage order="2" name="PRODDED FORWARD">
+        <Movement>LEFT → RIGHT</Movement>
+        <Description>Emotion engages → Logic validates</Description>
+        <Neurochemicals>Acetylcholine engages (SMART) → Serotonin validates (SIGNIFICANCE)</Neurochemicals>
+        <CopySection>Story hooks → Mechanism explains</CopySection>
+      </Stage>
+
+      <Stage order="3" name="PROVIDED VALUE">
+        <Movement>RIGHT peak</Movement>
+        <Description>Understanding crystallizes, proof validates</Description>
+        <Neurochemicals>Serotonin deepens (SIGNIFICANCE crystallizes)</Neurochemicals>
+        <CopySection>Mechanism deep dive, scientific backing, "I get it" moment</CopySection>
+      </Stage>
+
+      <Stage order="4" name="ENCOURAGEMENT &amp; SAFETY">
+        <Movement>BOTTOM reinforced</Movement>
+        <Description>Trust deepens, "This is safe for me"</Description>
+        <Neurochemicals>Dopamine reinforces (SAFE deepens)</Neurochemicals>
+        <CopySection>Guarantee, social proof, risk reversal</CopySection>
+      </Stage>
+
+      <Stage order="5" name="ALIGNS WITH IDENTITY">
+        <Movement>BACK engaged</Movement>
+        <Description>Tribal belonging, "This is WHO I AM"</Description>
+        <Neurochemicals>Oxytocin connects (SUPPORTED belonging)</Neurochemicals>
+        <CopySection>Community, values alignment, identity transformation</CopySection>
+      </Stage>
+
+      <Stage order="6" name="MOVES FORWARD">
+        <Movement>FRONT activated</Movement>
+        <Description>Action inevitable, commitment made</Description>
+        <Neurochemicals>Adrenaline drives (SUPERIOR action)</Neurochemicals>
+        <CopySection>CTA, authentic urgency, clear next step</CopySection>
+      </Stage>
+
+      <Stage order="7" name="ASCENSION">
+        <Movement>TOP culminates</Movement>
+        <Description>Transformation complete, growth achieved</Description>
+        <Neurochemicals>GABA peaks (SPECIAL culminates)</Neurochemicals>
+        <CopySection>New identity claimed, elevated status, advocacy</CopySection>
+      </Stage>
+    </Journey>
+
+    <PathCharacteristics>
+      <Item>SPIRAL not linear (touches each face multiple times)</Item>
+      <Item>BUILDS MOMENTUM (each pass deeper than last)</Item>
+      <Item>3-DIMENSIONAL (moves through space, not checklist)</Item>
+      <Item>GEOMETRIC (pyramidal faces create container forces)</Item>
+    </PathCharacteristics>
+  </TransformationPath>
+
+  <!-- ========================================
+       RADICAL SIMPLICITY (4-QUESTION TEST)
+       ======================================== -->
+  <RadicalSimplicity>
+    <Principle>
+      The brain creates complexity to hide from truth.
+      But it craves simplicity to feel safe.
+      Every piece of content must pass 4-question test.
+    </Principle>
+
+    <Test>
+      <Question number="1" axis="LEFT_TOP" neurochemicals="Acetylcholine_GABA">
+        <Ask>THE PROMISE: Can I state the transformation in ONE sentence?</Ask>
+        <Rule>Singular transformation (one clear arrow, no compound claims)</Rule>
+        <Example>YES: "Sleep naturally without pills within 14 days"</Example>
+        <Example>NO: "Better sleep, more energy, improved mood, weight loss, and..."</Example>
+        <Why>Brain can only hold ONE promise at a time in working memory</Why>
+      </Question>
+
+      <Question number="2" axis="RIGHT_BACK" neurochemicals="Serotonin_Oxytocin">
+        <Ask>THE PROOF: Can I explain WHY it works simply + show WHO it worked for?</Ask>
+        <Components>
+          <Component>Mechanism (UMP/UMS) explainable to 8th grader</Component>
+          <Component>Social Proof (3+ specific testimonials with names/dates/numbers)</Component>
+          <Component>Evidence (studies, data, authority)</Component>
+        </Components>
+        <Why>Prefrontal cortex needs justification, but must be SIMPLE</Why>
+      </Question>
+
+      <Question number="3" axis="BOTTOM" neurochemicals="Dopamine">
+        <Ask>THE TRUST: Have I made them feel SAFE before asking for anything?</Ask>
+        <Components>
+          <Component>Guarantee (strong risk reversal, 60-90 day)</Component>
+          <Component>Transparency (honest about time/effort required)</Component>
+          <Component>SHAQ's (protective education, warn of industry problems)</Component>
+          <Component>Authority (credentials, proof of expertise)</Component>
+        </Components>
+        <Why>Amygdala must be CALMED before decision possible</Why>
+      </Question>
+
+      <Question number="4" axis="FRONT" neurochemicals="Adrenaline">
+        <Ask>THE DEAL: Is there a genuine reason to act NOW (not fake urgency)?</Ask>
+        <CriticalDistinction>
+          <Item>Scarcity of OFFER: Authentic (founding member pricing, limited cohort)</Item>
+          <Item>Scarcity of PRODUCT: Often fake (VIOLATES BOTTOM/SAFE)</Item>
+        </CriticalDistinction>
+        <Components>
+          <Component>Value vastly exceeds cost ("steal the deal")</Component>
+          <Component>Real urgency (cohort starts, pricing expires - verifiable)</Component>
+          <Component>Competitive advantage (get ahead of others)</Component>
+        </Components>
+        <Why>Mobilizes action, but must NOT violate trust</Why>
+      </Question>
+    </Test>
+
+    <FailureCondition>If ANY answer is NO → Content is too complex or incomplete</FailureCondition>
+  </RadicalSimplicity>
+
+  <!-- ========================================
+       FAST TRACKS VS FUNNELS (PARADIGM)
+       ======================================== -->
+  <ParadigmShift>
+    <Old name="FUNNELS" type="Subtraction Engine">
+      <Goal>Filter people OUT</Goal>
+      <Mechanism>Remove unqualified leads</Mechanism>
+      <Result>90%+ drop-off designed in</Result>
+      <Philosophy>Extract maximum from minority who stay</Philosophy>
+      <Neurochemicals>Overindex FRONT/Adrenaline (false superiority), BOTTOM/Dopamine spikes (false safety), Cortisol (stress)</Neurochemicals>
+      <Outcome>Short-term conversions, long-term burnout, buyer's remorse</Outcome>
+      <AxisViolation>Overindex FRONT, violates BOTTOM (Safety) and BACK (Alignment)</AxisViolation>
+    </Old>
+
+    <New name="FAST TRACKS" type="Acceleration Engine">
+      <Goal>Move people FORWARD</Goal>
+      <Mechanism>Remove friction, accelerate transformation</Mechanism>
+      <Result>Maximize success rate</Result>
+      <Philosophy>Ensure everyone succeeds (Whole Solution)</Philosophy>
+      <Neurochemicals>Balanced all 6 axes - Dopamine (SAFE), GABA (SPECIAL), Acetylcholine (SMART), Serotonin (SIGNIFICANCE), Adrenaline (SUPERIOR/Front), Oxytocin (SUPPORTED/Back)</Neurochemicals>
+      <Outcome>Sustainable transformation, advocacy, compounding growth</Outcome>
+      <AxisBalance>All 6 axes activated in proper sequence with balanced pairs</AxisBalance>
+    </New>
+
+    <Implication>
+      All Ultramind skills must design FAST TRACKS, not FUNNELS.
+      Transformation over transaction. Success assurance over filtering.
+    </Implication>
+  </ParadigmShift>
+
+  <!-- ========================================
+       HYBRID WHOLE SOLUTIONS (ARCHITECTURE)
+       ======================================== -->
+  <WholeSolution>
+    <Principle>
+      Information is free. Transformation is expensive.
+      Old Way (Info Products): 90% failure rate.
+      New Way (Hybrid Solutions): 70%+ success rate.
+    </Principle>
+
+    <ThreeComponentModel>
+      <Component number="1" name="PHYSICAL ANCHOR" axis="BACK" neurochemical="Oxytocin">
+        <Why>Triggers ownership, real-world presence, sensory engagement</Why>
+        <Examples>Supplement, device, workbook, physical tool (integrated, not random)</Examples>
+        <Identity>"I am someone who HAS this" (tangible + credible)</Identity>
+      </Component>
+
+      <Component number="2" name="DIGITAL PROTOCOL" axis="RIGHT" neurochemical="Serotonin">
+        <Why>Provides knowledge, step-by-step process, education</Why>
+        <Examples>Video lessons, frameworks, protocols, templates</Examples>
+        <Understanding>Uses physical anchor, guided by AI</Understanding>
+      </Component>
+
+      <Component number="3" name="AI AGENT" axes="BACK_BOTTOM" neurochemicals="Oxytocin_Dopamine">
+        <Why>Prevents dropout, adapts protocol, provides daily guidance</Why>
+        <Function>
+          <Item>Daily check-ins</Item>
+          <Item>Adaptive protocols based on feedback</Item>
+          <Item>Accountability during dopamine dip (Day 3-7)</Item>
+          <Item>Celebration of progress</Item>
+          <Item>Prevent quitting at critical moments</Item>
+        </Function>
+        <Relationship>AI companion (BACK - Oxytocin/SUPPORTED), Always there (BOTTOM - Dopamine/SAFE)</Relationship>
+      </Component>
+    </ThreeComponentModel>
+
+    <QualityGate>
+      <Question>Is this a Whole Solution or just information?</Question>
+      <Rule>If info-only → Flag as "Obsolete Model" → Suggest hybrid architecture</Rule>
+      <Applies>Offer Architect, Product Creation Genius, Transformation Ecosystem Architect</Applies>
+    </QualityGate>
+  </WholeSolution>
+
+  <!-- ========================================
+       MANIPULATION PROHIBITIONS (CRITICAL)
+       ======================================== -->
+  <AntiManipulation>
+    <Principle>
+      Authentic Influence over Manipulation.
+      Customers who feel SMARTER for buying, not regretful.
+    </Principle>
+
+    <Prohibited severity="critical" penalty="-3.0_per_violation">
+      <Tactic>Fake countdown timers (destroys Dopamine/SAFE long-term)</Tactic>
+      <Tactic>Manufactured scarcity (violates trust)</Tactic>
+      <Tactic>Fear-mongering (trauma exploitation)</Tactic>
+      <Tactic>Hidden costs revealed late (betrayal)</Tactic>
+      <Tactic>Fake social proof (invented testimonials)</Tactic>
+      <Tactic>Bait-and-switch (promise one thing, deliver another)</Tactic>
+    </Prohibited>
+
+    <AdrenalineMarketingAntiPattern>
+      <Description>"Weird stretched teeth" (High Smile) tactic</Description>
+      <Works>For clicks (Acetylcholine/Adrenaline spike)</Works>
+      <Destroys>Trust (Dopamine/SAFE + Oxytocin/SUPPORTED(Back) crash)</Destroys>
+      <Result>Buyer's remorse, refunds, negative reviews, unsustainable</Result>
+      <Diagnosis>Overindex LEFT (Acetylcholine/SMART manipulation) + FRONT (Fake SUPERIOR urgency), violates BOTTOM (SAFE) + BACK (SUPPORTED)</Diagnosis>
+    </AdrenalineMarketingAntiPattern>
+
+    <AuthenticMarketing>
+      <Goal>Customers who feel SMARTER for buying</Goal>
+      <Mechanism>All 6 axes in balance</Mechanism>
+      <Foundation>BOTTOM (SAFE/Dopamine) first, always</Foundation>
+      <Result>Advocacy, loyalty, sustainable growth</Result>
+    </AuthenticMarketing>
+  </AntiManipulation>
+
+  <!-- ========================================
+       SCORING SYSTEM (QUALITY VALIDATION)
+       ======================================== -->
+  <ScoringSystem>
+    <AxisScores>
+      <Scale>0-10 per axis</Scale>
+      <Thresholds>
+        <Range>1-3: WEAK (insufficient activation, major work needed)</Range>
+        <Range>4-6: MODERATE (present but underwhelming, strengthening required)</Range>
+        <Range>7-9: STRONG (effective activation, minor optimization)</Range>
+        <Range>10: EXCEPTIONAL (perfect execution, reference-worthy)</Range>
+      </Thresholds>
+    </AxisScores>
+
+    <BalanceRules>
+      <Rule name="VERTICAL_BALANCE">
+        <Condition>TOP score cannot exceed BOTTOM by 3+ points</Condition>
+        <Violation>Feels like scam, triggers skepticism</Violation>
+        <Fix>Increase BOTTOM (safety) before TOP (status) claims</Fix>
+      </Rule>
+
+      <Rule name="HORIZONTAL_BALANCE">
+        <Condition>LEFT and RIGHT must be within 3 points</Condition>
+        <Violation>If LEFT >> RIGHT: Manipulation. If RIGHT >> LEFT: Boring.</Violation>
+        <Fix>Add emotion if too logical, add mechanism if too emotional</Fix>
+      </Rule>
+
+      <Rule name="DEPTH_BALANCE">
+        <Condition>BACK should equal or exceed FRONT</Condition>
+        <Violation>Impulse buy → regret → refund</Violation>
+        <Fix>Establish identity fit BEFORE pushing urgency</Fix>
+      </Rule>
+    </BalanceRules>
+
+    <OverallScore>
+      <Formula>Base Score (avg of 6) - Penalties = Final Score</Formula>
+      <Penalties>
+        <Missing>-2.0 per axis scoring 0-2/10</Missing>
+        <Sequence>-1.0 per sequence violation</Sequence>
+        <Balance>-0.5 per balance violation</Balance>
+        <Manipulation>-3.0 per manipulation tactic detected</Manipulation>
+      </Penalties>
+      <Rating>
+        <Range score="9.0-10.0">EXCEPTIONAL (Full resonance, ready to deploy)</Range>
+        <Range score="7.5-8.9">STRONG (Effective, minor optimization)</Range>
+        <Range score="6.0-7.4">GOOD (Functional, needs improvement)</Range>
+        <Range score="4.5-5.9">WEAK (Significant gaps)</Range>
+        <Range score="0.0-4.4">POOR (Major reconstruction needed)</Range>
+      </Rating>
+    </OverallScore>
+  </ScoringSystem>
+
+  <!-- ========================================
+       VERSION HISTORY
+       ======================================== -->
+  <VersionHistory>
+    <Version number="1.0.0" date="2025-12-17">
+      <Changes>
+        <Change>Created Resonance Constitution as global quality layer</Change>
+        <Change>Encoded 6-Dimensional Neuro-Box physics</Change>
+        <Change>Defined geometric transformation journey</Change>
+        <Change>Established Radical Simplicity 4-question test</Change>
+        <Change>Codified Fast Tracks vs Funnels paradigm</Change>
+        <Change>Mandated Hybrid Whole Solutions architecture</Change>
+        <Change>Specified manipulation prohibitions</Change>
+        <Change>Created scoring system and balance rules</Change>
+      </Changes>
+      <Status>stable</Status>
+    </Version>
+    <Version number="1.0.1" date="2026-03-07">
+      <Changes>
+        <Change>Corrected all 6 neurochemical-to-side assignments to canonical Hologon mapping</Change>
+        <Change>Bottom: GABA→Dopamine (SAFE), Top: Serotonin→GABA (SPECIAL)</Change>
+        <Change>Left: Dopamine→Acetylcholine (SMART), Right: Acetylcholine→Serotonin (SIGNIFICANCE)</Change>
+        <Change>Front: Adrenaline→Oxytocin→Adrenaline (SUPERIOR/PSYCH), Back: Oxytocin→Adrenaline→Oxytocin (SUPPORTED/CONSCIENCE)</Change>
+        <Change>v1.0.1b: Corrected depth axis — SUPERIOR(PSYCH/ego) to Front, SUPPORTED(CONSCIENCE/social) to Back per owner clarification</Change>
+        <Change>Added 7S canonical labels to all side name attributes</Change>
+        <Change>Updated TransformationPath neurochemical journey references</Change>
+        <Change>Updated RadicalSimplicity 4-question neurochemical attributes</Change>
+        <Change>Updated WholeSolution component axis/neurochemical mappings</Change>
+        <Change>Updated ParadigmShift neurochemical references to use side/7S pairs</Change>
+        <Change>Updated AntiManipulation neurochemical references</Change>
+        <Change>Moved "Steal the Deal" to CENTER/SOUL origin note (was Front side Drive)</Change>
+        <Change>Added Hologon canonical reference in header</Change>
+      </Changes>
+      <Status>stable</Status>
+    </Version>
+  </VersionHistory>
+
+</ResonanceConstitution>
