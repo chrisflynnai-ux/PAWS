@@ -18,15 +18,19 @@
   },
   "input_schema": [
     {"name": "command", "type": "string", "required": true},
-    {"name": "session_state", "type": "json", "required": false},
-    {"name": "project_brief", "type": "yaml", "required": false},
-    {"name": "message_spine", "type": "yaml", "required": false},
-    {"name": "evidence_pack", "type": "yaml", "required": false}
+    {"name": "session_state", "type": "json", "required": false}
+  ],
+  "conditional_input_schema": [
+    {"name": "project_brief", "type": "yaml", "condition": "T2+"},
+    {"name": "message_spine", "type": "yaml", "condition": "T2+"},
+    {"name": "evidence_pack", "type": "yaml", "condition": "T3+"}
   ],
   "output_schema": [
     {"name": "task_request", "type": "json"},
-    {"name": "session_state", "type": "json"},
-    {"name": "escalation_packet", "type": "json"}
+    {"name": "session_state", "type": "json"}
+  ],
+  "conditional_output_schema": [
+    {"name": "escalation_packet", "type": "json", "condition": "circuit_breaker_halt"}
   ],
   "runtime": {
     "model_preference": "sonnet",
@@ -34,11 +38,17 @@
     "risk_level": "low"
   },
   "cadence": {
+    "enum_map": {
+      "T1": {"phase": "research", "maturity": "exploratory", "convergence": "divergent"},
+      "T2": {"phase": "draft", "maturity": "convergent", "convergence": "structured"},
+      "T3": {"phase": "production", "maturity": "executional", "convergence": "methodical"},
+      "T4": {"phase": "polish", "maturity": "resonant", "convergence": "deliberate"}
+    },
     "tracks": {
-      "T1": {"cycle_minutes": [1, 3], "feedback": "high_throughput", "convergence": "divergent"},
-      "T2": {"cycle_minutes": [3, 5], "feedback": "per_cycle", "convergence": "structured"},
-      "T3": {"cycle_minutes": [5, 15], "feedback": "per_step", "convergence": "methodical"},
-      "T4": {"cycle_minutes": [15, 30], "feedback": "deep_review", "convergence": "resonant"}
+      "T1": {"cycle_minutes": [1, 3], "feedback": "high_throughput"},
+      "T2": {"cycle_minutes": [3, 5], "feedback": "per_cycle"},
+      "T3": {"cycle_minutes": [5, 15], "feedback": "per_step"},
+      "T4": {"cycle_minutes": [15, 30], "feedback": "deep_review"}
     },
     "supervisor_frequency": "every_3_to_5_cycles"
   },

@@ -9,13 +9,19 @@ tags: [orchestration, routing, pipeline, cadence, state-management, meta]
 description: >-
   Ultra-lean meta-orchestrator that routes tasks through a 4-track pipeline
   with phase-aware cadence, team formations, quality gates, and artifact
-  maturation tracking. Coordinates — never generates.
+  maturation tracking. Coordinates -- never generates.
 inputs:
   - command
   - session_state
+conditional_inputs:
+  - project_brief    # required T2+
+  - message_spine    # required T2+
+  - evidence_pack    # required T3+
 outputs:
   - task_request
   - session_state
+conditional_outputs:
+  - escalation_packet  # emitted on circuit breaker halt
 depends_on: []
 delegates_to:
   - skill.meta.mma.v5_0_0
@@ -40,19 +46,19 @@ eval_suite: zpwo-orchestration-core
 
 # Zero-Point Workflow Orchestrator (ZPWO v5.0.0)
 
-Ultra-lean meta-orchestrator that routes tasks through a 4-track pipeline with phase-aware cadence, manages artifact maturation, enforces quality gates, and coordinates multi-model agent teams. ZPWO coordinates — it never generates content directly.
+Ultra-lean meta-orchestrator that routes tasks through a 4-track pipeline with phase-aware cadence, manages artifact maturation, enforces quality gates, and coordinates multi-model agent teams. ZPWO coordinates -- it never generates content directly.
 
 ## Purpose
 
 ZPWO is the conductor of the PAWS harness. It receives commands, determines which track and phase an artifact is in, composes the right team formation, dispatches structured task requests to specialist skills, processes results through quality gates, and advances artifacts through their maturation curve.
 
-The v5.0 upgrade integrates phase-aware cadence — agent teams operate at different cycle speeds depending on the maturity stage of the artifact they are working on. Early phases run fast and wide. Late phases run slow and precise.
+The v5.0 upgrade integrates phase-aware cadence -- agent teams operate at different cycle speeds depending on the maturity stage of the artifact they are working on. Early phases run fast and wide. Late phases run slow and precise.
 
 ## Use When
 
 - Starting any multi-step workflow that produces deliverables
 - Routing commands to the correct specialist skill
-- Advancing artifacts through T1 → T2 → T3 → T4 pipeline
+- Advancing artifacts through T1 -> T2 -> T3 -> T4 pipeline
 - Composing agent teams for a task
 - Checking workflow state and prerequisites
 - Managing context budget and garbage collection
@@ -83,11 +89,11 @@ The v5.0 upgrade integrates phase-aware cadence — agent teams operate at diffe
 
 ## Core Doctrine
 
-1. **State > Chat** — SESSION_STATE.json is truth, not conversation history
-2. **Generate Last** — Tools and deterministic operations before LLM generation
-3. **Light Center, Heavy Edges** — ZPWO routes, specialist skills execute
-4. **Locked SSOT** — Source objects locked after creation, validated via checksum
-5. **Phase-Aware Cadence** — Team speed matches artifact maturity stage
+1. **State > Chat** -- SESSION_STATE.json is truth, not conversation history
+2. **Generate Last** -- Tools and deterministic operations before LLM generation
+3. **Light Center, Heavy Edges** -- ZPWO routes, specialist skills execute
+4. **Locked SSOT** -- Source objects locked after creation, validated via checksum
+5. **Phase-Aware Cadence** -- Team speed matches artifact maturity stage
 
 ## The 4-Track Pipeline
 
@@ -107,6 +113,24 @@ The v5.0 upgrade integrates phase-aware cadence — agent teams operate at diffe
 ## Phase-Aware Cadence Model
 
 Artifacts mature through the pipeline at different speeds. The cadence model governs cycle speed, feedback frequency, and team behavior per phase.
+
+### Canonical Enum Map
+
+Three vocabularies describe artifact state. This is the single authoritative mapping:
+
+| Track (pipeline position) | Phase (cadence label) | Maturity (artifact state) | Convergence Mode |
+|---------------------------|----------------------|---------------------------|------------------|
+| T1 | research | exploratory | divergent |
+| T2 | draft | convergent | structured |
+| T3 | production | executional | methodical |
+| T4 | polish | resonant | deliberate |
+
+**Translation rules:**
+- `track` is always `T1`/`T2`/`T3`/`T4` (the pipeline position enum)
+- `phase` is the cadence label used in TaskRequest: `research`/`draft`/`production`/`polish`
+- `maturity` is the artifact state tracked in SESSION_STATE: `exploratory`/`convergent`/`executional`/`resonant`
+- The mapping is 1:1. T1 always means phase=research, maturity=exploratory. No exceptions.
+- All downstream skills (MMA, Skill Builder, Knowledge Synthesis) MUST use these exact enum values.
 
 ### Cadence Definitions
 
@@ -164,7 +188,7 @@ SESSION_STATE tracks where each artifact is in its maturation curve:
 }
 ```
 
-Maturity stages: `exploratory` → `convergent` → `executional` → `resonant`
+Maturity stages: `exploratory` -> `convergent` -> `executional` -> `resonant`
 
 Skills declare their maturity orientation in their frontmatter, and ZPWO matches them to the artifact's current stage.
 
@@ -183,15 +207,15 @@ Skills declare their maturity orientation in their frontmatter, and ZPWO matches
 
 ## Workflow
 
-1. **Read State** — Load SESSION_STATE.json, check current track and pending tasks
-2. **Parse Command** — Resolve command to skill via alias resolver and routing table
-3. **Check Prerequisites** — Verify SSOT objects exist for target track
-4. **Determine Cadence** — Set cycle speed and feedback frequency based on target track
-5. **Compose Team** — Build team formation per track rules
-6. **Dispatch TaskRequest** — Send structured request to specialist skill with cadence params
-7. **Process TaskResult** — Check success, MMA score, and artifact maturity
-8. **Route Result** — Advance track (if gate passes), trigger fix loop (if below gate), or halt (if circuit breaker)
-9. **Update State** — Write updated SESSION_STATE.json
+1. **Read State** -- Load SESSION_STATE.json, check current track and pending tasks
+2. **Parse Command** -- Resolve command to skill via alias resolver and routing table
+3. **Check Prerequisites** -- Verify SSOT objects exist for target track
+4. **Determine Cadence** -- Set cycle speed and feedback frequency based on target track
+5. **Compose Team** -- Build team formation per track rules
+6. **Dispatch TaskRequest** -- Send structured request to specialist skill with cadence params
+7. **Process TaskResult** -- Check success, MMA score, and artifact maturity
+8. **Route Result** -- Advance track (if gate passes), trigger fix loop (if below gate), or halt (if circuit breaker)
+9. **Update State** -- Write updated SESSION_STATE.json
 
 ## Circuit Breaker
 
@@ -205,13 +229,13 @@ Skills declare their maturity orientation in their frontmatter, and ZPWO matches
 ## Decision Tree
 
 ```
-IF no PROJECT_BRIEF or MESSAGE_SPINE → Run /intake first
-IF command maps to T2+ and SSOT missing → Block, require prerequisites
-IF asset_type requested → Resolve via alias, route to skill
-IF MMA fails → Stay in track, trigger FIX loop (check fix_count)
-IF fix_count >= 3 → Circuit breaker HALT
-IF context > 70% → Auto-trigger /gc
-IF track complete + MMA PASS → Human gate, then advance track
+IF no PROJECT_BRIEF or MESSAGE_SPINE -> Run /intake first
+IF command maps to T2+ and SSOT missing -> Block, require prerequisites
+IF asset_type requested -> Resolve via alias, route to skill
+IF MMA fails -> Stay in track, trigger FIX loop (check fix_count)
+IF fix_count >= 3 -> Circuit breaker HALT
+IF context > 70% -> Auto-trigger /gc
+IF track complete + MMA PASS -> Human gate, then advance track
 ```
 
 ## Failure Modes
@@ -257,5 +281,5 @@ IF track complete + MMA PASS → Human gate, then advance track
 - ZPWO v5.0 supersedes v4.0. Key change: cadence model + artifact maturation tracking.
 - The cadence model is a lightweight layer, not a separate subsystem. It adds 3 fields to TaskRequest and 1 tracking object to SESSION_STATE.
 - Cadence targets are guidelines, not hard limits. Agents are not terminated for exceeding cycle times.
-- MMA scoring is phase-aware starting v5.0 — early phases reward coverage, late phases reward coherence.
+- MMA scoring is phase-aware starting v5.0 -- early phases reward coverage, late phases reward coherence.
 - ZPWO is model-agnostic for routing. The model_strategy.yaml file determines which model executes each skill.
