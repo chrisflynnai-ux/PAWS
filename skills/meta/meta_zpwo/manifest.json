@@ -1,0 +1,41 @@
+{
+  "id": "meta_zpwo",
+  "name": "Zero-Point Workflow Orchestrator",
+  "version": "4.0.0",
+  "status": "active",
+  "category": "",
+  "tags": [],
+  "description": "Ultra-lean meta-orchestrator. Routes commands to specialized skills via\n      4-track pipeline, manages SSOT state, enforces circuit breakers and tiered\n      MMA gates. Does NOT execute content generation \u2014 only coordinates.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "any",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "zpwo_v4_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

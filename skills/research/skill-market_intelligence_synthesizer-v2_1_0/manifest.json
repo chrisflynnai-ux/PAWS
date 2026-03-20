@@ -1,0 +1,50 @@
+{
+  "id": "skill.market_intelligence_synthesizer.v2_1_0",
+  "name": "Market Intelligence Synthesizer",
+  "version": "2.1.0",
+  "status": "active",
+  "category": "market_intelligence_synthesizer",
+  "tags": [
+    "market_research",
+    "voc",
+    "voice_of_customer",
+    "copy_strategy",
+    "angles",
+    "hooks",
+    "belief_shifts",
+    "uve"
+  ],
+  "description": "Synthesize provided market/voice research into copywriter-ready strategy: angles, VOC language, \n      belief shifts, hooks, Value Equation inputs, objection mapping, and prioritized recommendations\u2014\n      without inventing or extending beyond source docs.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "market_intelligence_synthesizer_v2.1.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "xml_source": "KB-TRANSFORMATION-ARCHITECTURE-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 330, column 48"
+  },
+  {
+    "skill_id": "skill.offer_architect.v2_0_0",
+    "xml_source": "offer_architect_v2.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/product/skill-offer_architect-v2_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.product_creation_genius.v2_0_0",
+    "xml_source": "product_creation_genius_v2.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/product/skill-product_creation_genius-v2_0_0",
+    "frontmatter_errors": [
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "xml_source": "PT_Skillpack Product Creation Light.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 1, column 0"
+  },
+  {
+    "skill_id": "skill.quick_info_product_builder_lite.v2_0_0",
+    "xml_source": "quick_info_product_builder_lite_v2.0.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/product/skill-quick_info_product_builder_lite-v2_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "transformation_ecosystem_architect_v2.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 186, column 86"
+  }
+]

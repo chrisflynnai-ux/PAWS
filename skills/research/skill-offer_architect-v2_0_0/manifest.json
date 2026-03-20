@@ -1,0 +1,49 @@
+{
+  "id": "skill.offer_architect.v2_0_0",
+  "name": "Offer Architect",
+  "version": "2.0.0",
+  "status": "active",
+  "category": "offer_architect",
+  "tags": [
+    "offer_engineering",
+    "positioning",
+    "value_equation",
+    "pricing",
+    "guarantees",
+    "ump_ums",
+    "conversion"
+  ],
+  "description": "Strategic offer engineer who makes offers \"stupid to say no\" by developing unique mechanisms \n      (UMP/UMS), engineering perceived value via the Value Equation, architecting pricing and \n      payment structures, designing objection-killing bonus stacks, and building guarantee + \n      scarcity systems that maximize conversion without manipulation.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "offer_architect_v2.0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

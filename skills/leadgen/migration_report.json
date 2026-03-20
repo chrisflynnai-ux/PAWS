@@ -1,0 +1,27 @@
+[
+  {
+    "xml_source": "assessment_lead_gen_architect_v1.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 179, column 84"
+  },
+  {
+    "xml_source": "cold_outreach_architect_v1.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 180, column 82"
+  },
+  {
+    "xml_source": "KB-ONBOARDING-RETENTION-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 848, column 58"
+  },
+  {
+    "xml_source": "lead_gen_funnel_architect_v1.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 153, column 73"
+  },
+  {
+    "xml_source": "power_trio_router_v1.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 178, column 81"
+  }
+]

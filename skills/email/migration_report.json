@@ -1,0 +1,42 @@
+[
+  {
+    "xml_source": "KB-EMAIL-ARCHITECTURE-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 583, column 36"
+  },
+  {
+    "xml_source": "KB-EMAIL-CONSCIOUSNESS-MAPPER-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 194, column 93"
+  },
+  {
+    "xml_source": "KB-EMAIL-CONVECTION-TRACKER-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 203, column 79"
+  },
+  {
+    "xml_source": "KB-EMAIL-LAUNCH-SEQUENCE-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 315, column 37"
+  },
+  {
+    "xml_source": "KB-EMAIL-RELATIONSHIP-LADDER-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 236, column 60"
+  },
+  {
+    "xml_source": "KB-EMAIL-SEGMENTATION-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 138, column 17"
+  },
+  {
+    "xml_source": "KB-EMAIL-SIDEWAYS-SALES-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 85, column 100"
+  },
+  {
+    "xml_source": "KB-EMAIL-SUBJECT-LINES-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 140, column 112"
+  }
+]

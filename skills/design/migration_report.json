@@ -1,0 +1,77 @@
+[
+  {
+    "xml_source": "design_wireframe_architect_v1.1.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 224, column 8"
+  },
+  {
+    "xml_source": "image_planner_coordinator_v1.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 223, column 8"
+  },
+  {
+    "xml_source": "strategic_design_master_v1.0.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 1686, column 25"
+  },
+  {
+    "skill_id": "skill.vertical_advertorial.v1_0_0",
+    "xml_source": "vertical_advertorial_v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/design/skill-vertical_advertorial-v1_0_0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "skill_id": "skill.vertical_agency.v1_0_0",
+    "xml_source": "vertical_agency_v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/design/skill-vertical_agency-v1_0_0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "xml_source": "vertical_agentic_ui_v1_0_0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 375, column 5"
+  },
+  {
+    "skill_id": "skill.vertical_ecom_product.v1_0_0",
+    "xml_source": "vertical_ecom_product_v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/design/skill-vertical_ecom_product-v1_0_0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "skill_id": "skill.vertical_saas_landing.v1_0_0",
+    "xml_source": "vertical_saas_landing_v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/design/skill-vertical_saas_landing-v1_0_0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "skill_id": "skill.vertical_sales_page.v1_0_0",
+    "xml_source": "vertical_sales_page_v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/design/skill-vertical_sales_page-v1_0_0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  }
+]

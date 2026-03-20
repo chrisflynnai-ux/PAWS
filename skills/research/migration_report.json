@@ -1,0 +1,57 @@
+[
+  {
+    "skill_id": "skill.market_intelligence_synthesizer.v2_1_0",
+    "xml_source": "market_intelligence_synthesizer_v2.1.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/research/skill-market_intelligence_synthesizer-v2_1_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.offer_architect.v2_0_0",
+    "xml_source": "offer_architect_v2.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/research/skill-offer_architect-v2_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "sales_page_deconstructor_v2.0.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 668, column 64"
+  },
+  {
+    "xml_source": "sales_page_deconstructor_v2.1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 371, column 11"
+  },
+  {
+    "skill_id": "skill.market_scout.v1_2_0",
+    "xml_source": "skill.market_scout.v1_2_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/research/skill-market_scout-v1_2_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.research_ops.v1_0_0",
+    "xml_source": "skill.research_ops.v1_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/research/skill-research_ops-v1_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "skill_id": "skill.research_synthesizer.v3_0_0",
+    "xml_source": "skill.research_synthesizer.v3_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/research/skill-research_synthesizer-v3_0_0",
+    "frontmatter_errors": [],
+    "manifest_errors": [],
+    "status": "PASS"
+  },
+  {
+    "xml_source": "vsl_script_analyzer_v1.0.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 332, column 37"
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "id": "skill.research_synthesizer.v3_0_0",
+  "name": "Research Synthesizer",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "research_synthesizer",
+  "tags": [
+    "synthesis",
+    "research_bridge",
+    "handoff",
+    "copy_strategy",
+    "voc",
+    "angles",
+    "belief_shifts",
+    "value_equation"
+  ],
+  "description": "Consumes the 4 Foundational Documents from Market Scout and packages them\n      into structured handoff artifacts for every downstream skill on the Copy \n      Production Track. Translates raw research into action \u2014 does NOT invent \n      or extend beyond source documents.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "skill.research_synthesizer.v3_0_0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

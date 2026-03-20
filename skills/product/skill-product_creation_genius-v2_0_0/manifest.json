@@ -1,0 +1,49 @@
+{
+  "id": "skill.product_creation_genius.v2_0_0",
+  "name": "Product Creation Genius",
+  "version": "2.0.0",
+  "status": "active",
+  "category": "product_creation_genius",
+  "tags": [
+    "orchestration",
+    "product_creation",
+    "offer_architecture",
+    "validation_first",
+    "distribution_aware",
+    "transformation_design",
+    "neuro_resonance"
+  ],
+  "description": "",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "opus",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "product_creation_genius_v2.0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

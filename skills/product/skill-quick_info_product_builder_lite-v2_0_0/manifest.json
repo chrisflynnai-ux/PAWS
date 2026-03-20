@@ -1,0 +1,49 @@
+{
+  "id": "skill.quick_info_product_builder_lite.v2_0_0",
+  "name": "Quick Info Product Builder (LITE)",
+  "version": "2.0.0",
+  "status": "active",
+  "category": "quick_info_product_builder_lite",
+  "tags": [
+    "info_product",
+    "quick_win",
+    "lead_magnet",
+    "transformation",
+    "lite",
+    "action_assets",
+    "checklist"
+  ],
+  "description": "Rapidly turns one validated problem + mechanism into a scannable quick-win info product\n      (guide/checklist/mini-playbook) that produces a measurable result in 24-72 hours.\n      Transformation over information. Action assets over walls of text.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "quick_info_product_builder_lite_v2.0.0.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

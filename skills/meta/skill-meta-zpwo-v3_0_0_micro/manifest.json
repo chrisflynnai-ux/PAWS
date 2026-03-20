@@ -1,0 +1,41 @@
+{
+  "id": "skill.meta.zpwo.v3_0_0_micro",
+  "name": "Zero-Point Workflow Orchestrator (Micro)",
+  "version": "3.0.0",
+  "status": "active",
+  "category": "meta",
+  "tags": [],
+  "description": "Ultra-lean meta-orchestrator. Routes commands to specialized skills,\n      manages SSOT state, enforces circuit breakers. Does NOT execute content\n      generation\u2014only coordinates other skills.",
+  "relationships": {
+    "depends_on": [],
+    "delegates_to": [],
+    "complements": []
+  },
+  "tool_requirements": [],
+  "memory_contract": {
+    "reads": [],
+    "writes": []
+  },
+  "input_schema": [],
+  "output_schema": [],
+  "runtime": {
+    "model_preference": "sonnet",
+    "token_budget": "medium",
+    "risk_level": "medium"
+  },
+  "eval_suite": "",
+  "package": {
+    "has_examples": false,
+    "has_evals": false,
+    "has_scripts": false,
+    "has_sub_skills": false,
+    "has_templates": false,
+    "has_experiences": false
+  },
+  "provenance": {
+    "migrated_from": "zpwo_v3_MICRO.xml",
+    "migration_date": "2026-03-20",
+    "migration_tool": "xskill-migrator",
+    "validated": false
+  }
+}

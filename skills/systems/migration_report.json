@@ -1,0 +1,17 @@
+[
+  {
+    "xml_source": "tools_workflow_architect_v1.0.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 34, column 15"
+  },
+  {
+    "xml_source": "tools_workflow_engineer.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 122, column 8"
+  },
+  {
+    "xml_source": "xml_skill_template_v2.1.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 432, column 36"
+  }
+]

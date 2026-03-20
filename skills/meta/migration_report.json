@@ -1,0 +1,42 @@
+[
+  {
+    "xml_source": "mma_master_monitor_agent_v1_0_0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 769, column 21"
+  },
+  {
+    "xml_source": "skill_builder_v1.2.0.xml",
+    "status": "ERROR",
+    "error": "mismatched tag: line 419, column 4"
+  },
+  {
+    "xml_source": "SKILL_TEMPLATE_V2.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 252, column 41"
+  },
+  {
+    "xml_source": "xml_skill_template_v2_1.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 432, column 36"
+  },
+  {
+    "skill_id": "skill.meta.zpwo.v3_0_0_micro",
+    "xml_source": "zpwo_v3_MICRO.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/meta/skill-meta-zpwo-v3_0_0_micro",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "skill_id": "meta_zpwo",
+    "xml_source": "zpwo_v4_0_0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/meta/meta_zpwo",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  }
+]

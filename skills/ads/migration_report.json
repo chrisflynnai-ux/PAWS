@@ -1,0 +1,48 @@
+[
+  {
+    "xml_source": "KB-META-ADS-ANDROMEDA-CREATIVE-ENGINE-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 93, column 49"
+  },
+  {
+    "skill_id": "",
+    "xml_source": "KB-META-ADS-CAMPAIGN-ARCHITECTURE-v1.0.xml",
+    "package_dir": "C:/DEV/SUPERMIND/skills/ads/KB-META-ADS-CAMPAIGN-ARCHITECTURE-v1.0",
+    "frontmatter_errors": [
+      "Field 'tags' must be a non-empty list",
+      "Field 'description' must be at least 10 characters"
+    ],
+    "manifest_errors": [],
+    "status": "FAIL"
+  },
+  {
+    "xml_source": "KB-META-ADS-IMAGE-ANALYZER-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 54, column 55"
+  },
+  {
+    "xml_source": "KB-META-ADS-IMAGE-GENERATOR-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 119, column 46"
+  },
+  {
+    "xml_source": "KB-META-ADS-MEASUREMENT-ATTRIBUTION-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 32, column 135"
+  },
+  {
+    "xml_source": "KB-META-ADS-PERFORMANCE-DIAGNOSTICS-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 68, column 65"
+  },
+  {
+    "xml_source": "KB-META-ADS-SCALING-STRATEGIST-v1.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 33, column 114"
+  },
+  {
+    "xml_source": "meta_ads_generator_v1.0.0.xml",
+    "status": "ERROR",
+    "error": "not well-formed (invalid token): line 233, column 58"
+  }
+]
